@@ -12,6 +12,7 @@ export default {
         { name: 'siteHeader', title: 'Site header settings' },
         { name: 'siteFooter', title: 'Site footer settings' },
         { name: 'siteEmail', title: 'Site email settings' },
+        { name: 'contactPage', title: 'Contact Page settings' },
     ],
     fields: [
         {
@@ -49,6 +50,12 @@ export default {
             title: 'Site email settings',
             type: 'emailSettings',
             group: 'siteEmail',
+        },
+        {
+            name: 'contactPageSettings',
+            title: 'Contact Page settings',
+            type: 'contactPageSettings',
+            group: 'contactPage',
         }
     ]
 }

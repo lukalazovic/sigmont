@@ -8,16 +8,16 @@ export default {
             name: 'ctaLabel',
             title: 'CTA Label',
             type: 'string',
-            description: 'The label text for the CTA button',
+            description: 'Text displayed on the call-to-action button.',
         },
         {
             name: 'ctaLinkUrl',
             title: 'CTA Link',
             type: 'reference',
             to: [
-                { type: 'landing', title: 'Landing page' },
+                { type: 'landing', title: 'Landing Page' },
             ],
-            description: 'The link or URL for the CTA button',
+            description: 'Page or document to link to when the button is clicked.',
         },
     ],
-}
+};

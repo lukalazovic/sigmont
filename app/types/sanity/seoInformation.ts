@@ -2,14 +2,14 @@ import { MdInfo } from 'react-icons/md';
 
 export default {
     name: 'seoInformation',
-    title: 'SEO info',
+    title: 'SEO Information',
     type: 'object',
     icon: MdInfo,
     fields: [
         {
             name: 'title',
             title: 'Page Title',
-            description: 'SEO optimized page title',
+            description: 'SEO-optimized page title.',
             type: 'string',
         },
         {
@@ -22,25 +22,28 @@ export default {
                 slugify: (input: string) => input
                     .toLowerCase()
                     .replace(/\s+/g, '-')
-                    .slice(0, 200)
-            }
+                    .slice(0, 200),
+                isUnique: () => true,
+            },
+            description: 'URL-friendly version of the page title for better SEO.',
         },
         {
             name: 'metaDescription',
-            title: 'Meta description',
-            description: 'Short description that is displayed in search engine results',
+            title: 'Meta Description',
+            description: 'Short description that appears in search engine results. Aim for 150-160 characters.',
             type: 'text',
         },
         {
             name: 'metaImage',
-            title: 'Meta image',
-            description: 'Image that is displayed in search engine results and social media posts.',
+            title: 'Meta Image',
+            description: 'Image displayed in search engine results and social media shares.',
             type: 'image',
         }
     ],
     preview: {
-        input: {
-            title: 'slug',
-        }
-    }
+        select: {
+            title: 'title',
+            subtitle: 'slug.current',
+        },
+    },
 };
