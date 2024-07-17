@@ -5,14 +5,14 @@ export default {
     fields: [
         {
             name: 'Image',
+            type: 'image',
             title: 'Image',
             description: 'Add image',
-            type: 'image',
             fields: [ 
                 {
                     name: 'alt',
-                    title: 'Alt Text',
                     type: 'string',
+                    title: 'Alt Text',
                     description: 'Alternative text for the image (for accessibility)',
                 },
                 {
