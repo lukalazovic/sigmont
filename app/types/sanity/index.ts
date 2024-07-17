@@ -15,3 +15,4 @@ export { default as siteFooter } from './siteFooter';
 export { default as imageType } from './imageType';
 export { default as contactInfo } from './contactInfo';
 export { default as contactPageSettings } from './contactPageSettings';
+export { default as contactFormSettings } from './contactFormSettings';
