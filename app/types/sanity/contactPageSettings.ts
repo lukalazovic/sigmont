@@ -1,3 +1,5 @@
+
+
 export default {
     name: 'contactPageSettings',
     title: 'Contact Page Settings',
@@ -35,10 +37,17 @@ export default {
             ]
         },
         {
+            name: 'displayContactForm',
+            title: 'Display Contact Form',
+            type: 'boolean',
+            description: 'Toggle to enable or disable the contact form on the contact page.'
+        },
+        {
             name: 'contactFormSettings',
             title: 'Contact Form Settings',
             type: 'contactFormSettings',
-            fieldset: 'formSettings'
+            fieldset: 'formSettings',
+            hidden: ({ parent }: { parent: { displayContactForm: boolean } }) => !parent?.displayContactForm
         }
     ]
-}
+};
