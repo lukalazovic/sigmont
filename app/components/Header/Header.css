@@ -7,6 +7,7 @@
     --bs-navbar-brand-margin-end: 1rem;
     --bs-navbar-brand-font-size: 1.25rem;
     --bs-navbar-brand-padding-y: 0.3125rem;
+    box-shadow: 0 3px 8px rgba(9,9,9,.12);
     --bs-navbar-hover-color: var(--accent-color);
     --bs-navbar-active-color: var(--accent-color);
     --bs-navbar-brand-color: rgba(var(--bs-emphasis-color-rgb), 1);

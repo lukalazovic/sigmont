@@ -2,7 +2,7 @@ import React from 'react'
 
 export function Header() {
     return (
-        <header className="navbar navbar-expand-lg bg-white navbar-light container-fluid py-3 TESTposition-fixed ">
+        <header className="navbar navbar-expand-lg bg-white navbar-light container-fluid py-3 position-fixed ">
             <div className="container">
                 <a className="navbar-brand" href="index.html">LOGO</a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"

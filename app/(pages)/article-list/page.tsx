@@ -1,15 +1,15 @@
 import { PageProps } from "@/types/PageProps";
 
-interface ILandingProps {
+interface IArticleListProps {
     params: PageProps;
 }
-export default function Landing({ params }: ILandingProps) {
+export default function ArticleList({ params }: IArticleListProps) {
     const { slug } = params;
     
     return (
         <main>
             <div className="container mt-5">
-                <h1>Landing page {slug}</h1>
+                <h1>Article List page</h1>
             </div>
         </main>
     )
