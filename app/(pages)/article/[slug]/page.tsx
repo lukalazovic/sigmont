@@ -1,4 +1,4 @@
-import { PageProps } from "@/types/PageProps";
+import { PageProps } from "@/app/types/PageProps";
 
 interface IArticleProps {
     params: PageProps;

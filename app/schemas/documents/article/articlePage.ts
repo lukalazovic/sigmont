@@ -1,10 +1,10 @@
-import { MdPages } from 'react-icons/md';
+import { MdPages } from 'react-icons/md'
 import * as blocks from '../../blocks/index';
-import { validateSeoInfo } from '@/utils/validation';
+import { validateSeoInfo } from '@/app/utils/validation';
 
 export default {
-    name: 'landing',
-    title: 'Landing page',
+    name: 'article',
+    title: 'Article Page',
     type: 'document',
     icon: MdPages,
     groups: [
@@ -26,14 +26,13 @@ export default {
             group: 'content',
         },
         {
-            name: 'subHeading',
-            title: 'Sub Heading',
-            type: 'string',
+            name: 'mainBody',
+            title: 'Main body',
+            type: 'blockContent',
             group: 'content',
         },
         {
             name: 'heroImage',
-            title: 'Hero Image',
             type: 'heroImage',
             group: 'content',
         },
@@ -60,6 +59,6 @@ export default {
             type: 'boolean',
             default: true,
             group: 'settings',
-        },
+        }
     ]
 }

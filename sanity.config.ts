@@ -1,7 +1,7 @@
-import {defineConfig} from 'sanity'
-import {structureTool} from 'sanity/structure'
-import {visionTool} from '@sanity/vision'
-import { schemaTypes } from './schemas'
+import {defineConfig} from 'sanity';
+import {visionTool} from '@sanity/vision';
+import { schemaTypes } from './app/schemas';
+import {structureTool} from 'sanity/structure';
 import { MdDescription } from 'react-icons/md';
 
 

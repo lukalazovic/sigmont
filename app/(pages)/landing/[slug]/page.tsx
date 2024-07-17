@@ -1,4 +1,4 @@
-import { PageProps } from "@/types/PageProps";
+import { PageProps } from "@/app/types/PageProps";
 
 interface ILandingProps {
     params: PageProps;

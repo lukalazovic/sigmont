@@ -7,12 +7,12 @@ export default function Home() {
                 <h1>Homepage</h1>
                 <h3 className="mt-5">List of Links</h3>
                 <ul>
-                    <li><a href="/studio">studio</a></li>
-                    <li><a href="/landing/34">landing page 34</a></li>
-                    <li><a href="/about">about page</a></li>
-                    <li><a href="/contact">contact page</a></li>
-                    <li><a href="/article/34">article list page</a></li>
-                    <li><a href="/article/49">article page 49</a></li>
+                    <li><a href="/studio" target="_blank">Studio</a></li>
+                    <li><a href="/landing/34">Landing page 34</a></li>
+                    <li><a href="/about">About page</a></li>
+                    <li><a href="/contact">Contact page</a></li>
+                    <li><a href="/article/34">Article list page</a></li>
+                    <li><a href="/article/49">Article page 49</a></li>
                 </ul>
             </div>
         </main>
