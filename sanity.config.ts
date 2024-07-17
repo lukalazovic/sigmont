@@ -7,7 +7,7 @@ import { MdDescription } from 'react-icons/md';
 
 export default defineConfig({
   name: 'default',
-  title: 'Sanity Next.js Site',
+  title: 'Studio',
 
   projectId: 'l5pfekwx',
   dataset: 'production',

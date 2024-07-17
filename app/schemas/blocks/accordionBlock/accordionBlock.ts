@@ -8,14 +8,14 @@ export default {
     fields: [
         {
             name: 'title',
-            title: 'Descriptive title',
+            title: 'Heading',
             description: 'Heading of accordion block',
             type: 'string',
             group: 'content',
         },
         {
             name: 'items',
-            title: 'Items',
+            title: 'Accordions',
             type: 'array',
             of: [
                 {

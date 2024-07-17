@@ -13,3 +13,5 @@ export { default as siteHeader } from './header';
 export { default as callToAction } from './callToAction';
 export { default as siteFooter } from './siteFooter';
 export { default as imageType } from './imageType';
+export { default as contactInfo } from './contactInfo';
+export { default as contactPageSettings } from './contactPageSettings';

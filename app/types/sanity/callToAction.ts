@@ -1,31 +1,34 @@
 export default {
     name: 'callToAction',
-    title: 'Link',
+    title: 'Call to Action',
     type: 'object',
     fields: [
         {
             title: 'Text',
             name: 'text',
             type: 'string',
+            description: 'Text displayed for the call to action.',
         },
         {
             name: 'isLinkExternal',
             title: 'Content is from external source',
             type: 'boolean',
+            description: 'Check this if the link points to an external website or source.',
         },
         {
             name: 'internalLink',
-            title: 'Internal link',
-            description: 'Select referenced page',
+            title: 'Internal Link',
             type: 'reference',
+            description: 'Select the internal page or document to link to.',
             to: [
-                { type: 'landing', title: 'Landing page' },
-            ]
+                { type: 'landing', title: 'Landing Page' },
+            ],
         },
         {
             name: 'externalLink',
-            title: 'External link',
+            title: 'External Link',
             type: 'url',
+            description: 'Enter the URL for the external link.',
         }
     ]
-}
+};
