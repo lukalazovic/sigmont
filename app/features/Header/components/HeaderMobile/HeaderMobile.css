@@ -189,8 +189,8 @@
 
             a,
             div {
-                padding: 30px;
                 display: flex;
+                padding: 30px 10px;
                 align-items: center;
                 justify-content: flex-end;
 
