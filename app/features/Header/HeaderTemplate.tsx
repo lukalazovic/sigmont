@@ -5,35 +5,40 @@ import { HeaderMobile } from './components/HeaderMobile/HeaderMobile';
 import { HeaderDesktop } from './components/HeaderDesktop/HeaderDesktop';
 
 export const HeaderTemplate = ({
-    showCTA,
-    ctaLabel,
+    ctaType,
+    ctaLink,
     menuItems,
+    ctaBtnLabel,
     logoMobileUrl,
     logoDesktopUrl,
     showPhoneNumber,
-    mobileMenuSlideIn
+    mobileMenuSlideIn,
+    mobileHeaderPosition
 }: IHeaderTemplateProps) => {
     const [active, setActive] = useState(false);
 
     return (
         <>
             <HeaderDesktop
-                showCTA={showCTA}
-                ctaLabel={ctaLabel}
+                ctaLink={ctaLink}
+                ctaType={ctaType}
+                ctaBtnLabel={ctaBtnLabel}
                 menuItems={menuItems}
                 logoUrl={logoDesktopUrl}
                 showPhoneNumber={showPhoneNumber}
             />
             <HeaderMobile
+                ctaLink={ctaLink}
                 active={active}
-                showCTA={showCTA}
-                ctaLabel={ctaLabel}
+                ctaType={ctaType}
+                ctaBtnLabel={ctaBtnLabel}
                 setActive={setActive}
                 menuItems={menuItems}
                 showPhoneNumber={showPhoneNumber}
                 onLinkClick={() => setActive(false)}
                 mobileMenuSlideIn={mobileMenuSlideIn}
                 logoUrl={logoMobileUrl || logoDesktopUrl}
+                mobileHeaderPosition={mobileHeaderPosition}
             />
         </>
     );

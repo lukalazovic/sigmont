@@ -10,27 +10,29 @@ export interface IMenuItemMobileProps extends IMenuItemProps {
     setActive: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export interface IHeadersProps {
-    logoUrl: string;
-    showCTA?: boolean;
-    ctaLabel?: string;
-    showPhoneNumber?: boolean;
-    menuItems: IMenuItemProps[];
-    mobileMenuSlideIn?: 'left' | 'right';
+export interface ICTALinkProps {
+    url?: string;
+    label: string;
 }
 
-export interface IHeaderMobileProps extends IHeadersProps {
+export interface IBaseHeaderProps {
+    logoUrl: string;
+    ctaLink?: ICTALinkProps;
+    ctaBtnLabel?: string;
+    showPhoneNumber?: boolean;
+    menuItems: IMenuItemProps[];
+    ctaType?: 'button' | 'link';
+    mobileMenuSlideIn?: 'left' | 'right';
+    mobileHeaderPosition?: 'top' | 'bottom';
+}
+
+export interface IHeaderMobileProps extends IBaseHeaderProps {
     active: boolean;
     onLinkClick: () => void;
     setActive: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export interface IHeaderTemplateProps {
-    showCTA?: boolean;
-    ctaLabel?: string;
+export interface IHeaderTemplateProps extends IBaseHeaderProps {
     logoMobileUrl?: string;
     logoDesktopUrl: string;
-    showPhoneNumber?: boolean;
-    menuItems: IMenuItemProps[];
-    mobileMenuSlideIn?: 'left' | 'right';
 }
