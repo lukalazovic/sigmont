@@ -85,7 +85,8 @@ export default function RootLayout({
                     menuItems={menuItems}
                     showPhoneNumber={true}
                     ctaLabel="Get in touch"
-                    mobileMenuSlideIn={'left'}
+                    mobileMenuSlideIn={'right'}
+                    // mobileHeaderPosition="bottom"
                 />
                 {children}
                 <Footer />

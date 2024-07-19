@@ -17,6 +17,7 @@ export interface IHeadersProps {
     showPhoneNumber?: boolean;
     menuItems: IMenuItemProps[];
     mobileMenuSlideIn?: 'left' | 'right';
+    mobileHeaderPosition?: 'top' | 'bottom';
 }
 
 export interface IHeaderMobileProps extends IHeadersProps {
@@ -33,4 +34,5 @@ export interface IHeaderTemplateProps {
     showPhoneNumber?: boolean;
     menuItems: IMenuItemProps[];
     mobileMenuSlideIn?: 'left' | 'right';
+    mobileHeaderPosition?: 'top' | 'bottom';
 }

@@ -11,7 +11,8 @@ export const HeaderTemplate = ({
     logoMobileUrl,
     logoDesktopUrl,
     showPhoneNumber,
-    mobileMenuSlideIn
+    mobileMenuSlideIn,
+    mobileHeaderPosition
 }: IHeaderTemplateProps) => {
     const [active, setActive] = useState(false);
 
@@ -34,6 +35,7 @@ export const HeaderTemplate = ({
                 onLinkClick={() => setActive(false)}
                 mobileMenuSlideIn={mobileMenuSlideIn}
                 logoUrl={logoMobileUrl || logoDesktopUrl}
+                mobileHeaderPosition={mobileHeaderPosition}
             />
         </>
     );
