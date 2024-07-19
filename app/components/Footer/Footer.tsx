@@ -11,7 +11,7 @@ export function Footer() {
                     </div>
 
                     <div className="col-md-2 offset-md-1">
-                        <h5 className="py-3">Nase usluge</h5>
+                        <h3 className="py-3">Nase usluge</h3>
                         <ul className="nav flex-column">
                             <li className="nav-item mb-3"><a href="#" className="nav-link fw-normal p-0 "> Roof replacement</a>
                             </li>
@@ -25,7 +25,7 @@ export function Footer() {
                         </ul>
                     </div>
                     <div className="col-md-2 ">
-                        <h5 className="py-3">Brzi linkovi</h5>
+                        <h3 className="py-3">Brzi linkovi</h3>
                         <ul className="nav flex-column">
                             <li className="nav-item mb-3"><a href="#" className="nav-link fw-normal p-0 "> Our locations </a>
                             </li>
@@ -38,7 +38,7 @@ export function Footer() {
                         </ul>
                     </div>
                     <div className="col-md-3 ">
-                        <h5 className="py-3">Kontakt</h5>
+                        <h3 className="py-3">Kontakt</h3>
                         <ul className="nav flex-column">
                             <li className="nav-item d-flex mb-3">
                                 <a href="#" className="nav-link p-0 "> 163 Elm Drive, NYC, USA </a>

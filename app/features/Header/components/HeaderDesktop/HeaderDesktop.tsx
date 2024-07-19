@@ -31,7 +31,6 @@ export const HeaderDesktop = ({
                         {showCTA && (
                             <button
                                 aria-label={ctaLabel}
-                                aria-controls='cta-button'
                                 className='btn btn-primary'
                             >
                                 {ctaLabel}
