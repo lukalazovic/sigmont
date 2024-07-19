@@ -79,8 +79,11 @@ export default function RootLayout({
         <html lang="en">
             <body className={inter.className}>
                 <HeaderTemplate
+                    showCTA={true}
                     logoDesktopUrl="/"
                     menuItems={menuItems}
+                    showPhoneNumber={true}
+                    ctaLabel="Get in touch"
                     mobileMenuSlideIn={'left'}
                 />
                 {children}
