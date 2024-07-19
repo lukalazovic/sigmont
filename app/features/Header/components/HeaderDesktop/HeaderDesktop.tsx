@@ -14,7 +14,7 @@ export const HeaderDesktop = ({
 }: IHeadersProps) => {
     // add here usesite settings hook to get number from global settings
     return (
-        <header className="headerDesktop mobileNone">
+        <header className='headerDesktop mobileNone'>
             {(showPhoneNumber || showCTA) &&
                 <div className='top-wrapper'>
                     <div className='inner'>
@@ -30,7 +30,7 @@ export const HeaderDesktop = ({
                         )}
                         {showCTA && (
                             <button
-                                aria-label='Get in touch'
+                                aria-label={ctaLabel}
                                 aria-controls='cta-button'
                                 className='btn btn-primary'
                             >
@@ -40,11 +40,11 @@ export const HeaderDesktop = ({
                     </div>
                 </div>
             }
-            <div className="wrapper">
-                <Link className="logo" href="/">
-                    <Image src={logoUrl} alt="Logo" width={50} height={50} />
+            <div className='wrapper'>
+                <Link className='logo' href='/'>
+                    <Image src={logoUrl} alt='Logo' width={50} height={50} />
                 </Link>
-                <ul className="navigation">
+                <ul className='navigation'>
                     {menuItems.map(({ url, label, submenu }, idx) => (
                         <MenuItemDesktop
                             key={idx}

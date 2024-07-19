@@ -5,7 +5,7 @@ export default function Home() {
         <main className="flex min-h-screen flex-col items-center justify-between p-24">
             <div className="container mt-5">
                 <h1>Homepage</h1>
-                <h3 className="mt-5">List of Links</h3>
+                <h5 className="mt-5">List of Links</h5>
                 <ul>
                     <li><a href="/studio" target="_blank">Studio</a></li>
                     <li><a href="/landing/34">Landing page 34</a></li>
