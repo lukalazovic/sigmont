@@ -24,16 +24,26 @@ export const MenuItemMobile = ({
     };
 
     return (
-        <li className={`menu-item ${submenu ? 'menu-item-submenu' : ''}`}>
+        <li
+            className={`menu-item ${submenu ? 'menu-item-submenu' : ''}`}
+            role={submenu ? 'menuitem' : 'listitem'}
+        >
             {url ? (
                 <>
-                    <Link href={url} onClick={handleLinkClick}>
+                    <Link
+                        href={url}
+                        onClick={handleLinkClick}
+                        className={`${isSubmenuActive ? 'active' : ''}`}
+                    >
                         {label}
                     </Link>
                     {submenu && (
                         <button
                             onClick={handleSubmenuToggle}
+                            aria-expanded={isSubmenuActive}
                             className={`${isSubmenuActive ? 'active' : ''}`}
+                            aria-label={isSubmenuActive ? 'Collapse submenu' : 'Expand submenu'}
+                            aria-controls={`submenu-${label.replace(/\s+/g, '-').toLowerCase()}`}
                         >
                             <SvgArrowDownIcon />
                         </button>
@@ -41,11 +51,14 @@ export const MenuItemMobile = ({
                 </>
             ) : (
                 <>
-                    <span>{label}</span>
+                    <span className={`${isSubmenuActive ? 'active' : ''}`}>{label}</span>
                     {submenu && (
                         <button
                             onClick={handleSubmenuToggle}
+                            aria-expanded={isSubmenuActive}
                             className={`${isSubmenuActive ? 'active' : ''}`}
+                            aria-label={isSubmenuActive ? 'Collapse submenu' : 'Expand submenu'}
+                            aria-controls={`submenu-${label.replace(/\s+/g, '-').toLowerCase()}`}
                         >
                             <SvgArrowDownIcon />
                         </button>
@@ -53,7 +66,12 @@ export const MenuItemMobile = ({
                 </>
             )}
             {submenu && isSubmenuActive && active && (
-                <ul className="submenu">
+                <ul
+                    id={`submenu-${label.replace(/\s+/g, '-').toLowerCase()}`}
+                    className="submenu"
+                    role="group"
+                    aria-labelledby={label}
+                >
                     {submenu.map(({ url, label, submenu }, idx) => (
                         <MenuItemMobile
                             key={idx}

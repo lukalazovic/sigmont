@@ -6,7 +6,7 @@ import { IHeadersProps } from '../../types/HeaderType';
 
 export const HeaderDesktop = ({ logoUrl, menuItems }: IHeadersProps) => {
     return (
-        <header className="headerDesktop d-none d-md-block">
+        <header className="headerDesktop mobileNone">
             <div className="wrapper">
                 <Link className="logo" href="/">
                     <Image src={logoUrl} alt="Logo" width={50} height={50} />

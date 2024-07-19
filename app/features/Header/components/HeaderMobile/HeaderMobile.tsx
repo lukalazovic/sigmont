@@ -20,12 +20,17 @@ export const HeaderMobile = ({
     };
 
     return (
-        <header className="headerMobile d-md-none">
+        <header className="headerMobile desktopHidden">
             <div className="wrapper">
                 <Link href="/" onClick={handleLinkClick}>
                     <Image src={logoUrl} alt="Logo" className="logo" width={50} height={50} />
                 </Link>
-                <button onClick={() => setActive(!active)}>
+                <button
+                    aria-expanded={active}
+                    aria-controls="mobile-menu"
+                    onClick={() => setActive(!active)}
+                    aria-label={active ? 'Close menu' : 'Open menu'}
+                >
                     <label className={`menuIcon ${active ? 'active' : ''}`}>
                         <span></span>
                         <span></span>
