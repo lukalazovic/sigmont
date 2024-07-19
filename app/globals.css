@@ -58,12 +58,13 @@ body {
 }
 
 main,
-  body.mt-helper main {
+body.mt-helper main {
   flex: 1;
   margin-top: 77px;
 }
 
 @media (min-width: 768px) {
+  main,
   body.mt-helper main {
     margin-top: 133px;
   }
