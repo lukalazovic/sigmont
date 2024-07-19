@@ -1,4 +1,4 @@
-@import './components/Header/Header.css';
+@import './features/Header/HeaderTemplate.css';
 @import './components/Footer/Footer.css';
 
 *,
@@ -16,6 +16,7 @@ html {
 body {
   min-height: 100vh;
   display: flex;
+  color: var(--bs-black);
   flex-direction: column;
   --heading-font: 'Roboto Condensed', sans-serif;
   --heading-font-weight: 700;
@@ -56,9 +57,8 @@ body {
 }
 
 main {
-  min-height: 500px;
   flex: 1;
-  margin-top: 75px;
+  margin-top: 77px;
 }
 
 h1,.h1,h2,.h2,h3,.h3,h4,.h4,h5,.h5,h6,.h6 {

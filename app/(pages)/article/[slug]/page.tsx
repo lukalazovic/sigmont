@@ -9,7 +9,7 @@ export default function Article({ params }: IArticleProps) {
     return (
         <main>
             <div className="container mt-5">
-                <h1>Article page {slug}</h1>
+                <h1>{slug}</h1>
             </div>
         </main>
     )

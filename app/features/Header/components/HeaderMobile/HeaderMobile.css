@@ -1,0 +1,168 @@
+.headerMobile {
+    z-index: 1;
+    width: 100vw;
+    position: fixed;
+    background-color: #fff;
+    box-shadow: 0 3px 8px rgba(9, 9, 9, 0.12);
+    border-bottom: 1px solid var(--bs-border-color);
+
+    .wrapper {
+        height: 77px;
+        display: flex;
+        margin: 0 auto;
+        max-width: 1320px;
+        align-items: center;
+        padding: 0 calc(1.5rem * .5);
+        justify-content: space-between;
+    }
+
+    button {
+        border: none;
+        background: none;
+    }
+
+    .menuIcon {
+        width: 50px;
+        height: 31px;
+        display: flex;
+        cursor: pointer;
+        flex-direction: column;
+        border: 1px solid transparent;
+        justify-content: space-between;
+
+        span {
+            width: 100%;
+            height: 5px;
+            display: block;
+            border-radius: 6px;
+            transition: all 0.3s;
+            background-color: #333;
+        }
+    }
+
+    .menuIcon.active span:nth-child(1) {
+        transform: translateY(12px) rotate(45deg);
+    }
+
+    .menuIcon.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menuIcon.active span:nth-child(3) {
+        transform: translateY(-12px) rotate(-45deg);
+    }
+
+    .navigation {
+        left: 0;
+        margin: 0;
+        top: 78px;
+        padding: 0;
+        width: 100%;
+        display: flex;
+        position: fixed;
+        list-style: none;
+        overflow-y: scroll;
+        background: #fff;
+        align-items: center;
+        flex-direction: column;
+        height: calc(100vh - 78px);
+        transform: translateX(100%);
+        transition: transform 0.2s ease-in-out;
+        box-shadow: 0 3px 8px rgba(9, 9, 9, 0.12);
+
+        &.navigation-right {
+            transform: translateX(100%);
+        }
+
+        &.navigation-left {
+            transform: translateX(-100%);
+        }
+
+        &.active {
+            transform: translateX(0);
+        }
+
+        li {
+            width: 100%;
+            position: relative;
+
+            > a,
+            > span {
+                display: flex;
+                padding: 10px;
+                align-items: center;
+                justify-content: space-between;
+                border-bottom: 1px solid var(--bs-border-color);
+            }
+
+            &.menu-item-submenu {
+                position: relative;
+                > a,
+                > span {
+                    padding: 10px 58px 10px 10px;
+                }
+
+                button {
+                    position: absolute;
+                    z-index: 2;
+                    padding: 0;
+                    top: 0;
+                    right: 0;
+                    height: 48px;
+                    width: 48px;
+
+                    svg {
+                        height: 33px;
+                        width: 33px;
+                        transition: transform 0.2s ease-in-out;
+                    }
+
+                    &.active svg {
+                        transform: rotate(180deg);
+                    }
+                }
+
+                .submenu {
+                    padding: 0;
+                    list-style: none;
+
+                    li > a,
+                    li > span {
+                        font-size: 16px;
+                        padding-left: 20px;
+                    }
+
+                    li ul li > a,
+                    li ul li > span {
+                        padding-left: 30px;
+                    }
+
+                    li ul li ul li > a,
+                    li ul li ul li > span {
+                        padding-left: 40px;
+                    }
+
+                    li ul li ul li ul li > a,
+                    li ul li ul li ul li > span {
+                        padding-left: 50px;
+                    }
+
+                    li ul li ul li ul li ul li > a,
+                    li ul li ul li ul li ul li > span {
+                        padding-left: 60px;
+                    }
+
+                    li ul li ul li ul li ul li ul li > a,
+                    li ul li ul li ul li ul li ul li > span {
+                        padding-left: 70px;
+                    }
+
+                    li ul li ul li ul li ul li ul li ul li > a,
+                    li ul li ul li ul li ul li ul li ul li > span {
+                        padding-left: 80px;
+                    }
+                }
+            }
+        }
+    }
+}
