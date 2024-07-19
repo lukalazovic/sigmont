@@ -7,6 +7,7 @@
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  transition: all ease-in-out .2s !important;
 }
 
 html {
@@ -56,9 +57,16 @@ body {
   --bs-link-hover-color-rgb: 17, 17, 17;
 }
 
-main {
+main,
+  body.mt-helper main {
   flex: 1;
   margin-top: 77px;
+}
+
+@media (min-width: 768px) {
+  body.mt-helper main {
+    margin-top: 133px;
+  }
 }
 
 h1,.h1,h2,.h2,h3,.h3,h4,.h4,h5,.h5,h6,.h6 {

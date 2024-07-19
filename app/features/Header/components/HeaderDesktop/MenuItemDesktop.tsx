@@ -4,22 +4,23 @@ import { IMenuItemProps } from '../../types/HeaderType';
 import { SvgArrowDownIcon } from '../../icons/SvgArrowDownIcon';
 
 export const MenuItemDesktop = ({ url, label, submenu }: IMenuItemProps) => {
+    const hasSubmenu = submenu && submenu.length > 0;
     return (
-        <li className="menu-item">
+        <li className="menu-item" role='menuitem' aria-haspopup={hasSubmenu ? 'true' : 'false'}>
             {url ? (
                 <Link href={url}>
-                        {label}
-                        {submenu && <SvgArrowDownIcon />}
+                    {label}
+                    {hasSubmenu && <SvgArrowDownIcon aria-hidden="true" />}
                 </Link>
             ) : (
                 <span>
                     {label}
-                    {submenu && <SvgArrowDownIcon />}
+                    {hasSubmenu && <SvgArrowDownIcon aria-hidden="true" />}
                 </span>
             )}
-            {submenu && (
-                <ul className="submenu">
-                    {submenu.map(({url, label, submenu}, idx) => (
+            {hasSubmenu && (
+                <ul className="submenu" role="menu" aria-label={`${label} submenu`}>
+                    {submenu.map(({ url, label, submenu }, idx) => (
                         <MenuItemDesktop
                             key={idx}
                             url={url}

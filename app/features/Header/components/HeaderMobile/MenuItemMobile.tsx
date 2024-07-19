@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import classNames from 'classnames';
 import React, { useState } from 'react';
 import { IMenuItemMobileProps } from '../../types/HeaderType';
 import { SvgArrowDownIcon } from '../../icons/SvgArrowDownIcon';
@@ -25,15 +26,18 @@ export const MenuItemMobile = ({
 
     return (
         <li
-            className={`menu-item ${submenu ? 'menu-item-submenu' : ''}`}
-            role={submenu ? 'menuitem' : 'listitem'}
+            role='menuitem'
+            aria-haspopup={submenu ? 'true' : 'false'}
+            aria-expanded={submenu ? isSubmenuActive : undefined}
+            className={classNames('menu-item', {'menu-item-submenu': submenu})}
         >
             {url ? (
                 <>
                     <Link
                         href={url}
+                        aria-label={label}
                         onClick={handleLinkClick}
-                        className={`${isSubmenuActive ? 'active' : ''}`}
+                        className={classNames({ 'active': isSubmenuActive })}
                     >
                         {label}
                     </Link>
@@ -41,36 +45,41 @@ export const MenuItemMobile = ({
                         <button
                             onClick={handleSubmenuToggle}
                             aria-expanded={isSubmenuActive}
-                            className={`${isSubmenuActive ? 'active' : ''}`}
+                            className={classNames({ 'active': isSubmenuActive })}
                             aria-label={isSubmenuActive ? 'Collapse submenu' : 'Expand submenu'}
                             aria-controls={`submenu-${label.replace(/\s+/g, '-').toLowerCase()}`}
                         >
-                            <SvgArrowDownIcon />
+                            <SvgArrowDownIcon aria-hidden="true" />
                         </button>
                     )}
                 </>
             ) : (
                 <>
-                    <span className={`${isSubmenuActive ? 'active' : ''}`}>{label}</span>
+                    <span
+                        aria-label={label}
+                        className={classNames({ 'active': isSubmenuActive })}
+                    >
+                        {label}
+                    </span>
                     {submenu && (
                         <button
                             onClick={handleSubmenuToggle}
                             aria-expanded={isSubmenuActive}
-                            className={`${isSubmenuActive ? 'active' : ''}`}
+                            className={classNames({ 'active': isSubmenuActive })}
                             aria-label={isSubmenuActive ? 'Collapse submenu' : 'Expand submenu'}
                             aria-controls={`submenu-${label.replace(/\s+/g, '-').toLowerCase()}`}
                         >
-                            <SvgArrowDownIcon />
+                            <SvgArrowDownIcon aria-hidden="true" />
                         </button>
                     )}
                 </>
             )}
             {submenu && isSubmenuActive && active && (
                 <ul
-                    id={`submenu-${label.replace(/\s+/g, '-').toLowerCase()}`}
-                    className="submenu"
                     role="group"
+                    className="submenu"
                     aria-labelledby={label}
+                    id={`submenu-${label.replace(/\s+/g, '-').toLowerCase()}`}
                 >
                     {submenu.map(({ url, label, submenu }, idx) => (
                         <MenuItemMobile

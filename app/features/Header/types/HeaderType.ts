@@ -12,6 +12,9 @@ export interface IMenuItemMobileProps extends IMenuItemProps {
 
 export interface IHeadersProps {
     logoUrl: string;
+    showCTA?: boolean;
+    ctaLabel?: string;
+    showPhoneNumber?: boolean;
     menuItems: IMenuItemProps[];
     mobileMenuSlideIn?: 'left' | 'right';
 }
@@ -23,8 +26,11 @@ export interface IHeaderMobileProps extends IHeadersProps {
 }
 
 export interface IHeaderTemplateProps {
+    showCTA?: boolean;
+    ctaLabel?: string;
     logoMobileUrl?: string;
     logoDesktopUrl: string;
+    showPhoneNumber?: boolean;
     menuItems: IMenuItemProps[];
     mobileMenuSlideIn?: 'left' | 'right';
 }
