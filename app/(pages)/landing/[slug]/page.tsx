@@ -9,7 +9,7 @@ export default function Landing({ params }: ILandingProps) {
     return (
         <main>
             <div className="container mt-5">
-                <h1>Landing page {slug}</h1>
+                <h1>{slug}</h1>
             </div>
         </main>
     )
