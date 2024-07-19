@@ -5,6 +5,10 @@
     background-color: #fff;
     box-shadow: 0 3px 8px rgba(9, 9, 9, 0.12);
 
+    &.mobileNone {
+        display: none;
+    }
+
     .wrapper {
         height: 77px;
         display: flex;
@@ -122,5 +126,11 @@
         opacity: 1;
         visibility: visible;
         transform: translateY(100%);
+    }
+}
+
+@media (min-width: 768px) {
+    .headerDesktop.mobileNone {
+        display: block;
     }
 }

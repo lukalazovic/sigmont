@@ -6,6 +6,10 @@
     box-shadow: 0 3px 8px rgba(9, 9, 9, 0.12);
     border-bottom: 1px solid var(--bs-border-color);
 
+    &.desktopHidden {
+        display: block;
+    }
+
     .wrapper {
         height: 77px;
         display: flex;
@@ -95,6 +99,11 @@
                 border-bottom: 1px solid var(--bs-border-color);
             }
 
+            > a.active,
+            > span.active {
+                color: var(--accent-color);
+            }
+
             &.menu-item-submenu {
                 position: relative;
                 > a,
@@ -164,5 +173,11 @@
                 }
             }
         }
+    }
+}
+
+@media (min-width: 768px) {
+    .headerMobile.desktopHidden {
+        display: none;
     }
 }
