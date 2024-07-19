@@ -10,10 +10,11 @@ import { IHeaderMobileProps } from '../../types/HeaderType';
 export const HeaderMobile = ({
     active,
     logoUrl,
-    showCTA,
-    ctaLabel,
+    ctaType,
+    ctaLink,
     menuItems,
     setActive,
+    ctaBtnLabel,
     onLinkClick,
     showPhoneNumber,
     mobileMenuSlideIn,
@@ -78,7 +79,7 @@ export const HeaderMobile = ({
                                 />
                             ))}
                         </ul>
-                        {(showPhoneNumber || showCTA) &&
+                        {(showPhoneNumber || !!ctaType) &&
                             <div className='cta-wrapper'>
                                 {showPhoneNumber && (
                                     <a
@@ -90,24 +91,31 @@ export const HeaderMobile = ({
                                         +381652626262
                                     </a>
                                 )}
-                                {showCTA && (
-                                    <div>
+                                {ctaType === 'button' &&
+                                    (
                                         <button
-                                            aria-label={ctaLabel}
-                                            aria-expanded={active}
-                                            onClick={handleLinkClick}
+                                            aria-label={ctaBtnLabel}
                                             className='btn btn-primary'
                                         >
-                                            {ctaLabel}
+                                            {ctaBtnLabel}
                                         </button>
-                                    </div>
-                                )}
+                                    )}
+                                {ctaType === 'link' &&
+                                    (
+                                        <a
+                                            href='/link'
+                                            aria-label='cta label'
+                                            className='cta btn btn-primary'
+                                        >
+                                            cta label
+                                        </a>
+                                    )}
                             </div>
                         }
                     </div>
                 </div>
             </header>
-            <button onClick={handleLinkClick} className={classNames(`backdrop ${mobileMenuSlideIn}`, {'active': active })} />
+            <button onClick={handleLinkClick} className={classNames(`backdrop ${mobileMenuSlideIn}`, { 'active': active })} />
         </>
     );
 };

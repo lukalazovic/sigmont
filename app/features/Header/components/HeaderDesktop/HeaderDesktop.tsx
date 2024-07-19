@@ -2,20 +2,21 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { MenuItemDesktop } from './MenuItemDesktop';
-import { IHeadersProps } from '../../types/HeaderType';
 import { SvgPhoneIcon } from '../../icons/SvgPhoneIcon';
+import { IBaseHeaderProps } from '../../types/HeaderType';
 
 export const HeaderDesktop = ({
     logoUrl,
-    showCTA,
-    ctaLabel,
+    ctaType,
+    ctaLink,
+    ctaBtnLabel,
     menuItems,
     showPhoneNumber
-}: IHeadersProps) => {
+}: IBaseHeaderProps) => {
     // add here usesite settings hook to get number from global settings
     return (
         <header className='headerDesktop mobileNone'>
-            {(showPhoneNumber || showCTA) &&
+            {(showPhoneNumber || !!ctaType) &&
                 <div className='top-wrapper'>
                     <div className='inner'>
                         {showPhoneNumber && (
@@ -28,14 +29,25 @@ export const HeaderDesktop = ({
                                 +381652626262
                             </a>
                         )}
-                        {showCTA && (
-                            <button
-                                aria-label={ctaLabel}
-                                className='btn btn-primary'
-                            >
-                                {ctaLabel}
-                            </button>
-                        )}
+                        {ctaType === 'button' &&
+                            (
+                                <button
+                                    aria-label={ctaBtnLabel}
+                                    className='btn btn-primary'
+                                >
+                                    {ctaBtnLabel}
+                                </button>
+                            )}
+                        {ctaType === 'link' &&
+                            (
+                                <a
+                                            href='/link'
+                                            aria-label='cta label'
+                                            className='cta btn btn-primary'
+                                        >
+                                            cta label
+                                        </a>
+                            )}
                     </div>
                 </div>
             }

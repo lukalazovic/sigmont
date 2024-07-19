@@ -53,10 +53,17 @@ export default {
             fieldset: 'headerTopBar'
         },
         {
-            name: 'showCTAButton',
-            title: 'Show Call to Action Button',
-            type: 'boolean',
-            description: 'Enable to add a call to action button for quickly opening the "Get in Touch" form modal at the top of the header.',
+            name: 'ctaType',
+            title: 'CTA Type',
+            type: 'string',
+            options: {
+                list: [
+                    { title: 'CTA Button', value: 'button' },
+                    { title: 'CTA Link', value: 'link' }
+                ],
+                layout: 'dropdown'
+            },
+            description: 'Choose whether to use a CTA button or a CTA link.',
             fieldset: 'headerTopBar'
         },
         {
@@ -64,8 +71,16 @@ export default {
             title: 'CTA Button Label',
             type: 'string',
             description: 'Customize the label for the call to action button. This will be displayed on the button at the top of the header.',
-            hidden: ({ parent }: { parent: { showCTAButton: boolean } }) => !parent?.showCTAButton,
+            hidden: ({ parent }: { parent: {ctaType: string} }) => parent?.ctaType !== 'button',
             fieldset: 'headerTopBar'
-        }
+        },
+        {
+            name: 'ctaLink',
+            type: 'callToAction',
+            title: 'CTA Link',
+            description: 'Add a link for quick navigation to a page if you prefer not to use the CTA button for opening a modal.',
+            hidden: ({ parent }: { parent: {ctaType: string} }) => parent?.ctaType !== 'link',
+            fieldset: 'headerTopBar'
+        },
     ]
-}
+};

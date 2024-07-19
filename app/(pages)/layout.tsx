@@ -80,11 +80,12 @@ export default function RootLayout({
             {/* TODO: add class 'mt-helper' to body depends on does it have cta or phone in header */}
             <body className={classNames(inter.className, {['mt-helper'] : true})}>
                 <HeaderTemplate
-                    showCTA={true}
+                    logoUrl={'/'}
+                    ctaType='link'
                     logoDesktopUrl="/"
                     menuItems={menuItems}
                     showPhoneNumber={true}
-                    ctaLabel="Get in touch"
+                    ctaBtnLabel="Get in touch"
                     mobileMenuSlideIn={'right'}
                     // mobileHeaderPosition="bottom"
                 />
