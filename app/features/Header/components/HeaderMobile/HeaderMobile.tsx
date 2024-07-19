@@ -85,10 +85,9 @@ export const HeaderMobile = ({
                             {showCTA && (
                                 <div>
                                     <button
+                                        aria-label={ctaLabel}
                                         aria-expanded={active}
                                         onClick={handleLinkClick}
-                                        aria-label='Get in touch'
-                                        aria-controls='cta-button'
                                         className='btn btn-primary'
                                     >
                                         {ctaLabel}
