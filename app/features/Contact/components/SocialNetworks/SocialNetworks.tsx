@@ -27,8 +27,6 @@ export const SocialNetworks = ({ links }: SocialNetworksProps) => {
         tiktok: SvgTiktok,
     };
 
-    console.log("links", links)
-
     return (
         <div className="content-box my-5">
             <h5 className="element-title text-uppercase fw-bold">

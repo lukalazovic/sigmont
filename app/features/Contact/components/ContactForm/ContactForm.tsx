@@ -55,7 +55,7 @@ export const ContactForm = ({
 
         reset();
     };
-    console.log("showForm", showForm)
+
     if (!showForm) {
         return null;
     }

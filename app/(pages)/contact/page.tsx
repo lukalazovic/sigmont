@@ -30,9 +30,9 @@ export default async function Contact() {
                         socialNetworks={socialNetworks}
                     />
                     <ContactForm
-                        showForm={displayContactForm}
                         {...contactFormSettings}
                         {...siteEmailSettings}
+                        showForm={displayContactForm}
                     />
                 </div>
             </div>
