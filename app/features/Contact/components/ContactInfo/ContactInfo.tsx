@@ -29,8 +29,8 @@ export const ContactInfo = ({
                 <div className="page-content">
                     <h2 className="fs-3 text-uppercase mb-4">{heading}</h2>
                     <p>{mainIntro}</p>
-                    {contacts.map((c) => (
-                        <div className="col-md-6">
+                    {contacts.map((c, i) => (
+                        <div key={i} className="col-md-6">
                             <div className="content-box my-5">
                                 <h5 className="element-title text-uppercase fw-bold">
                                     {c.title}
