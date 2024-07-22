@@ -30,7 +30,7 @@ export default {
         {
             name: 'email',
             title: 'Email',
-            type: 'string',
+            type: 'email',
             description: 'Primary email address for contacting the office.',
         },
     ]
