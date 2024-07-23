@@ -4,8 +4,8 @@ export default {
     type: 'object',
     fields: [
         {
-            title: 'Text',
-            name: 'text',
+            title: 'Label',
+            name: 'label',
             type: 'string',
             description: 'Text displayed for the call to action.',
         },
@@ -22,6 +22,7 @@ export default {
             description: 'Select the internal page or document to link to.',
             to: [
                 { type: 'landing', title: 'Landing Page' },
+                { type: 'article', title: 'Article Page' },
             ],
         },
         {

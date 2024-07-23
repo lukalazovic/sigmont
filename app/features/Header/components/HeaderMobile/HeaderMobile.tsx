@@ -12,13 +12,14 @@ export const HeaderMobile = ({
     logoUrl,
     ctaType,
     ctaLink,
-    menuItems,
     setActive,
+    phoneNumber,
     ctaBtnLabel,
     onLinkClick,
     showPhoneNumber,
     mobileMenuSlideIn,
-    mobileHeaderPosition = 'top'
+    mobileHeaderPosition = 'top',
+    navigationItems
 }: IHeaderMobileProps) => {
     const [delayedActive, setDelayedActive] = useState(active);
 
@@ -67,15 +68,14 @@ export const HeaderMobile = ({
                     </button>
                     <div className={classNames('drawer', `drawer-${mobileMenuSlideIn}`, { 'active': active })}>
                         <ul className='navigation' aria-label='Mobile menu'>
-                            {delayedActive && menuItems.map(({ url, label, submenu }, idx) => (
+                            {delayedActive && navigationItems?.map(({ itemLink, linkCollections }, idx) => (
                                 <MenuItemMobile
                                     key={idx}
-                                    url={url}
-                                    label={label}
-                                    submenu={submenu}
+                                    itemLink={itemLink}
                                     setActive={setActive}
                                     active={delayedActive}
                                     onLinkClick={onLinkClick}
+                                    linkCollections={linkCollections}
                                 />
                             ))}
                         </ul>
@@ -84,11 +84,12 @@ export const HeaderMobile = ({
                                 {showPhoneNumber && (
                                     <a
                                         className='phone'
-                                        href='tel:+381652626262'
-                                        aria-label='Call +381652626262'
+                                        onClick={handleLinkClick}
+                                        href={`tel:${phoneNumber}`}
+                                        aria-label={`Call ${phoneNumber}`}
                                     >
                                         <SvgPhoneIcon />
-                                        +381652626262
+                                        {phoneNumber}
                                     </a>
                                 )}
                                 {ctaType === 'button' &&
@@ -103,11 +104,13 @@ export const HeaderMobile = ({
                                 {ctaType === 'link' &&
                                     (
                                         <a
-                                            href='/link'
-                                            aria-label='cta label'
+                                            onClick={handleLinkClick}
+                                            aria-label={ctaLink?.label}
                                             className='cta btn btn-primary'
+                                            target={ctaLink?.isLinkExternal ? '_blank' : '_self'}
+                                            href={`${ctaLink?.externalLink || ctaLink?.internalLink?.pageType}/${ctaLink?.internalLink?.slug}`}
                                         >
-                                            cta label
+                                            {ctaLink?.label}
                                         </a>
                                     )}
                             </div>

@@ -1,43 +1,60 @@
 import React from 'react';
 import Link from 'next/link';
 import classNames from 'classnames';
-import { IMenuItemProps } from '../../types/HeaderType';
+import { IItemLinkProps } from '../../types/HeaderType';
 import { SvgArrowDownIcon } from '../../icons/SvgArrowDownIcon';
 
-export const MenuItemDesktop = ({ url, label, submenu }: IMenuItemProps) => {
-    const hasSubmenu = submenu && submenu.length > 0;
+export const MenuItemDesktop = ({
+    linkCollections,
+    itemLink: { label, internalLink, externalLink, isLinkExternal }
+}: IItemLinkProps) => {
+    const hasSubmenu = linkCollections && linkCollections.length > 0;
+
+    const renderLink = (
+        href: string,
+        isExternal = false
+    ) => (
+        <Link
+            aria-label={label}
+            href={href}
+            target={isExternal ? '_blank' : '_self'}
+            rel={isExternal ? 'noopener noreferrer' : undefined}
+            className={classNames('menu-link', { 'active': hasSubmenu })}
+        >
+            {label}
+            {hasSubmenu && <SvgArrowDownIcon aria-hidden="true" />}
+        </Link>
+    );
+
+    const renderSpan = () => (
+        <span
+            aria-label={label}
+            className={classNames('menu-item-label', { 'active': hasSubmenu })}
+        >
+            {label}
+            {hasSubmenu && <SvgArrowDownIcon aria-hidden="true" />}
+        </span>
+    );
 
     return (
         <li
             role='none'
             className={classNames('menu-item', { 'has-submenu': hasSubmenu })}
         >
-            {url ? (
-                <Link
-                    href={url}
-                    aria-label={label}
-                >
-                    {label}
-                    {hasSubmenu && <SvgArrowDownIcon aria-hidden='true' />}
-                </Link>
-            ) : (
-                <span>
-                    {label}
-                    {hasSubmenu && <SvgArrowDownIcon aria-hidden='true' />}
-                </span>
-            )}
+            {internalLink && renderLink(`/${internalLink.pageType}/${internalLink.slug}`)}
+            {!internalLink && isLinkExternal && externalLink && renderLink(externalLink, true)}
+            {!internalLink && !isLinkExternal && renderSpan()}
             {hasSubmenu && (
                 <ul
                     role='menu'
                     className='submenu'
                     aria-label={`${label} submenu`}
                 >
-                    {submenu.map(({ url, label, submenu }, idx) => (
+                    {linkCollections?.map((item, idx) => (
                         <MenuItemDesktop
                             key={idx}
-                            url={url}
-                            label={label}
-                            submenu={submenu}
+                            itemLink={item.itemLink}
+                            linkCollections={item.linkCollections}
                         />
                     ))}
                 </ul>

@@ -43,7 +43,6 @@ export default {
                 default: 'top'
             },
             description: 'Choose the position of the mobile header bar. Default is top.',
-            fieldset: 'headerTopBar'
         },
         {
             name: 'showPhone',
