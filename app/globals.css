@@ -57,14 +57,16 @@ body {
   --bs-link-hover-color-rgb: 17, 17, 17;
 }
 
-main,
-body.mt-helper main {
+main {
   flex: 1;
   margin-top: 77px;
 }
 
+body.mt-0 main {
+  margin-top: 0;
+}
+
 @media (min-width: 768px) {
-  main,
   body.mt-helper main {
     margin-top: 133px;
   }

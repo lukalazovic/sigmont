@@ -1,4 +1,5 @@
 'use client';
+
 import Link from 'next/link';
 import classNames from 'classnames';
 import React, { useState } from 'react';
@@ -6,12 +7,11 @@ import { IMenuItemMobileProps } from '../../types/HeaderType';
 import { SvgArrowDownIcon } from '../../icons/SvgArrowDownIcon';
 
 export const MenuItemMobile = ({
-    url,
-    label,
     active,
-    submenu,
     setActive,
-    onLinkClick
+    onLinkClick,
+    linkCollections,
+    itemLink: { label, internalLink, externalLink, isLinkExternal }
 }: IMenuItemMobileProps) => {
     const [isSubmenuActive, setIsSubmenuActive] = useState(false);
 
@@ -24,72 +24,67 @@ export const MenuItemMobile = ({
         setActive(false);
     };
 
+    const renderLink = (
+        href: string,
+        isExternal = false
+    ) => (
+        <Link
+            href={href}
+            aria-label={label}
+            onClick={handleLinkClick}
+            target={isExternal ? '_blank' : '_self'}
+            className={classNames({ 'active': isSubmenuActive })}
+        >
+            {label}
+        </Link>
+    );
+
+    const renderButton = () => (
+        <button
+            onClick={handleSubmenuToggle}
+            aria-expanded={isSubmenuActive}
+            aria-haspopup="true"
+            className={classNames({ 'active': isSubmenuActive })}
+            aria-controls={`submenu-${label?.replace(/\s+/g, '-').toLowerCase()}`}
+            aria-label={isSubmenuActive ? `Collapse ${label} submenu` : `Expand ${label} submenu`}
+        >
+            <SvgArrowDownIcon aria-hidden="true" />
+        </button>
+    );
+
     return (
         <li
             role='menuitem'
-            aria-haspopup={submenu ? 'true' : 'false'}
-            aria-expanded={submenu ? isSubmenuActive : undefined}
-            className={classNames('menu-item', {'menu-item-submenu': submenu})}
+            aria-haspopup={linkCollections ? 'true' : 'false'}
+            aria-expanded={linkCollections ? isSubmenuActive : undefined}
+            className={classNames('menu-item', { 'menu-item-submenu': linkCollections })}
         >
-            {url ? (
-                <>
-                    <Link
-                        href={url}
-                        aria-label={label}
-                        onClick={handleLinkClick}
-                        className={classNames({ 'active': isSubmenuActive })}
-                    >
-                        {label}
-                    </Link>
-                    {submenu && (
-                        <button
-                            onClick={handleSubmenuToggle}
-                            aria-expanded={isSubmenuActive}
-                            className={classNames({ 'active': isSubmenuActive })}
-                            aria-label={isSubmenuActive ? 'Collapse submenu' : 'Expand submenu'}
-                            aria-controls={`submenu-${label.replace(/\s+/g, '-').toLowerCase()}`}
-                        >
-                            <SvgArrowDownIcon aria-hidden="true" />
-                        </button>
-                    )}
-                </>
-            ) : (
-                <>
-                    <span
-                        aria-label={label}
-                        className={classNames({ 'active': isSubmenuActive })}
-                    >
-                        {label}
-                    </span>
-                    {submenu && (
-                        <button
-                            onClick={handleSubmenuToggle}
-                            aria-expanded={isSubmenuActive}
-                            className={classNames({ 'active': isSubmenuActive })}
-                            aria-label={isSubmenuActive ? 'Collapse submenu' : 'Expand submenu'}
-                            aria-controls={`submenu-${label.replace(/\s+/g, '-').toLowerCase()}`}
-                        >
-                            <SvgArrowDownIcon aria-hidden="true" />
-                        </button>
-                    )}
-                </>
+            {internalLink && renderLink(`/${internalLink.pageType}/${internalLink.slug}`)}
+            {!internalLink && isLinkExternal && externalLink && renderLink(externalLink, true)}
+            {!internalLink && (!isLinkExternal || !externalLink) && (
+                <span
+                    aria-label={label}
+                    className={classNames({ 'active': isSubmenuActive })}
+                >
+                    {label}
+                </span>
             )}
-            {submenu && isSubmenuActive && active && (
+            {linkCollections && renderButton()}
+            {linkCollections && isSubmenuActive && active && (
                 <ul
                     role="group"
                     className="submenu"
-                    aria-labelledby={label}
-                    id={`submenu-${label.replace(/\s+/g, '-').toLowerCase()}`}
+                    id={`submenu-${label?.replace(/\s+/g, '-').toLowerCase()}`}
+                    aria-labelledby={`submenu-${label?.replace(/\s+/g, '-').toLowerCase()}`}
                 >
-                    {submenu.map(({ url, label, submenu }, idx) => (
+                    {linkCollections?.map(({ itemLink, linkCollections }, idx) => (
                         <MenuItemMobile
                             key={idx}
-                            url={url}
-                            label={label}
                             active={active}
-                            submenu={submenu}
+                            itemLink={itemLink}
                             setActive={setActive}
                             onLinkClick={onLinkClick}
+                            linkCollections={linkCollections}
                         />
                     ))}
                 </ul>

@@ -3,31 +3,31 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { MenuItemDesktop } from './MenuItemDesktop';
 import { SvgPhoneIcon } from '../../icons/SvgPhoneIcon';
-import { IBaseHeaderProps } from '../../types/HeaderType';
+import { IHeaderDesktopProps } from '../../types/HeaderType';
 
 export const HeaderDesktop = ({
     logoUrl,
     ctaType,
     ctaLink,
     ctaBtnLabel,
-    menuItems,
-    showPhoneNumber
-}: IBaseHeaderProps) => {
-    // add here usesite settings hook to get number from global settings
+    phoneNumber,
+    showPhoneNumber,
+    navigationItems
+}: IHeaderDesktopProps) => {
     return (
         <header className='headerDesktop mobileNone'>
             {(showPhoneNumber || !!ctaType) &&
                 <div className='top-wrapper'>
                     <div className='inner'>
                         {showPhoneNumber && (
-                            <a
+                            <Link
                                 className='phone'
-                                href='tel:+381652626262'
-                                aria-label='Call +381652626262'
+                                href={`tel:${phoneNumber}`}
+                                aria-label={`Call ${phoneNumber}`}
                             >
                                 <SvgPhoneIcon />
-                                +381652626262
-                            </a>
+                                {phoneNumber}
+                            </Link>
                         )}
                         {ctaType === 'button' &&
                             (
@@ -40,13 +40,14 @@ export const HeaderDesktop = ({
                             )}
                         {ctaType === 'link' &&
                             (
-                                <a
-                                            href='/link'
-                                            aria-label='cta label'
-                                            className='cta btn btn-primary'
-                                        >
-                                            cta label
-                                        </a>
+                                <Link
+                                    aria-label={ctaLink?.label}
+                                    className='cta btn btn-primary'
+                                    target={ctaLink?.isLinkExternal ? '_blank' : '_self'}
+                                    href={`${ctaLink?.externalLink || ctaLink?.internalLink?.pageType}/${ctaLink?.internalLink?.slug}`}
+                                >
+                                    {ctaLink?.label}
+                                </Link>
                             )}
                     </div>
                 </div>
@@ -56,12 +57,11 @@ export const HeaderDesktop = ({
                     <Image src={logoUrl} alt='Logo' width={50} height={50} />
                 </Link>
                 <ul className='navigation'>
-                    {menuItems.map(({ url, label, submenu }, idx) => (
+                    {navigationItems?.map((item, idx) => (
                         <MenuItemDesktop
                             key={idx}
-                            url={url}
-                            label={label}
-                            submenu={submenu}
+                            itemLink={item.itemLink}
+                            linkCollections={item.linkCollections}
                         />
                     ))}
                 </ul>

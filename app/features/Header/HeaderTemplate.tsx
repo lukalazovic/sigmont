@@ -7,10 +7,11 @@ import { HeaderDesktop } from './components/HeaderDesktop/HeaderDesktop';
 export const HeaderTemplate = ({
     ctaType,
     ctaLink,
-    menuItems,
+    phoneNumber,
     ctaBtnLabel,
     logoMobileUrl,
     logoDesktopUrl,
+    navigationItems,
     showPhoneNumber,
     mobileMenuSlideIn,
     mobileHeaderPosition
@@ -22,19 +23,21 @@ export const HeaderTemplate = ({
             <HeaderDesktop
                 ctaLink={ctaLink}
                 ctaType={ctaType}
-                ctaBtnLabel={ctaBtnLabel}
-                menuItems={menuItems}
                 logoUrl={logoDesktopUrl}
+                ctaBtnLabel={ctaBtnLabel}
+                phoneNumber={phoneNumber}
                 showPhoneNumber={showPhoneNumber}
+                navigationItems={navigationItems}
             />
             <HeaderMobile
-                ctaLink={ctaLink}
                 active={active}
+                ctaLink={ctaLink}
                 ctaType={ctaType}
-                ctaBtnLabel={ctaBtnLabel}
                 setActive={setActive}
-                menuItems={menuItems}
+                phoneNumber={phoneNumber}
+                ctaBtnLabel={ctaBtnLabel}
                 showPhoneNumber={showPhoneNumber}
+                navigationItems={navigationItems}
                 onLinkClick={() => setActive(false)}
                 mobileMenuSlideIn={mobileMenuSlideIn}
                 logoUrl={logoMobileUrl || logoDesktopUrl}
