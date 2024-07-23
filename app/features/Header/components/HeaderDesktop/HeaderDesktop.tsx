@@ -54,7 +54,13 @@ export const HeaderDesktop = ({
             }
             <div className='wrapper'>
                 <Link className='logo' href='/'>
-                    <Image src={logoUrl} alt='Logo' width={50} height={50} />
+                    <Image
+                        alt='Logo'
+                        width={50}
+                        height={50}
+                        src={logoUrl}
+                        priority={true}
+                    />
                 </Link>
                 <ul className='navigation'>
                     {navigationItems?.map((item, idx) => (

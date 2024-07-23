@@ -159,6 +159,10 @@
     
                         &.active svg {
                             transform: rotate(180deg);
+
+                            path:last-child {
+                                fill: var(--accent-color);
+                            }
                         }
                     }
     

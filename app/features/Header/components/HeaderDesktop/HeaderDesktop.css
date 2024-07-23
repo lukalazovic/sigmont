@@ -38,9 +38,8 @@
             font-weight: 600;
             margin-right: 15px;
             align-items: center;
-            transition: all ease-in-out .2s;
 
-            svg {
+            > svg {
                 width: 20px;
                 height: 20px;
                 margin-right: 5px;
@@ -49,7 +48,7 @@
             &:hover {
                 color: var(--accent-color);
 
-                svg path {
+                > svg path {
                     fill: var(--accent-color);
                 }
             }
@@ -94,6 +93,7 @@
         > a,
         > span {
             padding: 28px 15px;
+            transition: color 0.2s ease-in-out;
         }
 
         > a:hover,
@@ -106,6 +106,7 @@
 
         svg {
             fill: var(--bs-black);
+            transition: fill 0.2s ease-in-out
         }
 
         .submenu {
@@ -156,8 +157,8 @@
             color: var(--accent-color);
         }
 
-        &:hover svg,
-        &:focus-within svg {
+        &:hover > a > svg,
+        &:focus-within > a > svg {
             fill: var(--accent-color);
         }
     }

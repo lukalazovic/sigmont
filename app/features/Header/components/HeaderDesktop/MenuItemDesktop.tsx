@@ -15,11 +15,11 @@ export const MenuItemDesktop = ({
         isExternal = false
     ) => (
         <Link
-            aria-label={label}
             href={href}
+            aria-label={label}
+            className='menu-link'
             target={isExternal ? '_blank' : '_self'}
             rel={isExternal ? 'noopener noreferrer' : undefined}
-            className={classNames('menu-link', { 'active': hasSubmenu })}
         >
             {label}
             {hasSubmenu && <SvgArrowDownIcon aria-hidden="true" />}
@@ -29,7 +29,7 @@ export const MenuItemDesktop = ({
     const renderSpan = () => (
         <span
             aria-label={label}
-            className={classNames('menu-item-label', { 'active': hasSubmenu })}
+            className={'menu-item-label'}
         >
             {label}
             {hasSubmenu && <SvgArrowDownIcon aria-hidden="true" />}

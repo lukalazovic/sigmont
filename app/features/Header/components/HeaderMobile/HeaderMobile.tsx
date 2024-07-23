@@ -1,4 +1,5 @@
 'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import classNames from 'classnames';
@@ -16,10 +17,10 @@ export const HeaderMobile = ({
     phoneNumber,
     ctaBtnLabel,
     onLinkClick,
+    navigationItems,
     showPhoneNumber,
     mobileMenuSlideIn,
-    mobileHeaderPosition = 'top',
-    navigationItems
+    mobileHeaderPosition = 'top'
 }: IHeaderMobileProps) => {
     const [delayedActive, setDelayedActive] = useState(active);
 
@@ -42,16 +43,23 @@ export const HeaderMobile = ({
 
     return (
         <>
-            <header className={
-                classNames(`headerMobile desktopHidden ${mobileMenuSlideIn}`,
-                    {
-                        'headerMobileBottom': mobileHeaderPosition === 'bottom'
-                    }
+            <header
+                role="banner"
+                className={classNames(
+                    `headerMobile desktopHidden ${mobileMenuSlideIn}`,
+                    { 'headerMobileBottom': mobileHeaderPosition === 'bottom' }
                 )}
             >
                 <div className="wrapper">
                     <Link href="/" onClick={handleLinkClick} aria-label='Go to homepage'>
-                        <Image src={logoUrl} alt="Logo" className="logo" width={50} height={50} />
+                        <Image
+                            width={50}
+                            height={50}
+                            src={logoUrl}
+                            priority={true}
+                            className="logo"
+                            alt="Company Logo"
+                        />
                     </Link>
                     <button
                         className='hamburger'
@@ -66,8 +74,13 @@ export const HeaderMobile = ({
                             <span></span>
                         </label>
                     </button>
-                    <div className={classNames('drawer', `drawer-${mobileMenuSlideIn}`, { 'active': active })}>
-                        <ul className='navigation' aria-label='Mobile menu'>
+                    <div
+                        id="mobile-menu"
+                        role="navigation"
+                        aria-label='Mobile menu'
+                        className={classNames('drawer', `drawer-${mobileMenuSlideIn}`, { 'active': active })}
+                    >
+                        <ul className='navigation'>
                             {delayedActive && navigationItems?.map(({ itemLink, linkCollections }, idx) => (
                                 <MenuItemMobile
                                     key={idx}
@@ -79,46 +92,49 @@ export const HeaderMobile = ({
                                 />
                             ))}
                         </ul>
-                        {(showPhoneNumber || !!ctaType) &&
+                        {(showPhoneNumber || ctaType) &&
                             <div className='cta-wrapper'>
                                 {showPhoneNumber && (
-                                    <a
+                                    <Link
                                         className='phone'
                                         onClick={handleLinkClick}
                                         href={`tel:${phoneNumber}`}
                                         aria-label={`Call ${phoneNumber}`}
                                     >
-                                        <SvgPhoneIcon />
+                                        <SvgPhoneIcon aria-hidden="true" />
                                         {phoneNumber}
-                                    </a>
+                                    </Link>
                                 )}
-                                {ctaType === 'button' &&
-                                    (
-                                        <button
-                                            aria-label={ctaBtnLabel}
-                                            className='btn btn-primary'
-                                        >
-                                            {ctaBtnLabel}
-                                        </button>
-                                    )}
-                                {ctaType === 'link' &&
-                                    (
-                                        <a
-                                            onClick={handleLinkClick}
-                                            aria-label={ctaLink?.label}
-                                            className='cta btn btn-primary'
-                                            target={ctaLink?.isLinkExternal ? '_blank' : '_self'}
-                                            href={`${ctaLink?.externalLink || ctaLink?.internalLink?.pageType}/${ctaLink?.internalLink?.slug}`}
-                                        >
-                                            {ctaLink?.label}
-                                        </a>
-                                    )}
+                                {ctaType === 'button' && (
+                                    <button
+                                        aria-label={ctaBtnLabel}
+                                        className='btn btn-primary'
+                                    >
+                                        {ctaBtnLabel}
+                                    </button>
+                                )}
+                                {ctaType === 'link' && ctaLink && (
+                                    <Link
+                                        onClick={handleLinkClick}
+                                        aria-label={ctaLink.label}
+                                        className='cta btn btn-primary'
+                                        target={ctaLink.isLinkExternal ? '_blank' : '_self'}
+                                        rel={ctaLink.isLinkExternal ? 'noopener noreferrer' : undefined}
+                                        href={`${ctaLink.externalLink || `/${ctaLink.internalLink?.pageType}/${ctaLink.internalLink?.slug}`}`}
+                                    >
+                                        {ctaLink.label}
+                                    </Link>
+                                )}
                             </div>
                         }
                     </div>
                 </div>
             </header>
-            <button onClick={handleLinkClick} className={classNames(`backdrop ${mobileMenuSlideIn}`, { 'active': active })} />
+            <button
+                onClick={handleLinkClick}
+                aria-label="Close mobile menu"
+                className={classNames(`backdrop ${mobileMenuSlideIn}`, { 'active': active })}
+            />
         </>
     );
 };
