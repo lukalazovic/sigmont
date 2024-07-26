@@ -2,8 +2,19 @@ export const siteSettingsPageQuery = () => /* groq */ `
     *[_type == 'siteSettings'][0]{
         contactPageSettings{
             heading,
-            contacts,
             mainIntro,
+            heroImage {
+                title,
+                "imageSrc": image.asset->url,
+                "imageAlt": alt,
+                "ctaLabel": ctaConfiguration.ctaLabel,
+                "ctaLink": ctaConfiguration.ctaLinkUrl-> {
+                    "type": _type,
+                    "slug": seoInformation.slug.current
+                }
+            },
+            contacts,
+            showSocialLinks,
             displayContactForm,
             contactFormSettings,
         },

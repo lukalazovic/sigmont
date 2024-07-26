@@ -4,6 +4,12 @@ export default {
     type: 'object',
     fields: [
         {
+            name: 'title',
+            type: 'string',
+            title: 'Title',
+            description: 'Title that will be shown on hero image',
+        },
+        {
             name: 'image',
             type: 'image',
             title: 'Image',
