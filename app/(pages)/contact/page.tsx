@@ -1,8 +1,8 @@
+import { unstable_noStore as noStore } from 'next/cache';
 import client from "@/app/client";
 import { ContactInfo } from "@/app/features/Contact/components/ContactInfo/ContactInfo";
 import { ContactForm } from "@/app/features/Contact/components/ContactForm/ContactForm";
 import { siteSettingsPageQuery } from "@/app/groq/siteSettings/siteSettings";
-import { unstable_noStore as noStore } from 'next/cache';
 import { HeroImage } from "@/app/components/HeroImage/HeroImage";
 
 export default async function Contact() {
