@@ -46,7 +46,6 @@ export const siteSettingsPageQuery = () => /* groq */ `
                         "slug": seoInformation.slug.current
                     },
                     "externalLink": externalLink,
-                    isLinkExternal
                 }
             }
         },
@@ -55,7 +54,6 @@ export const siteSettingsPageQuery = () => /* groq */ `
             "ctaLink": {
                 "label": ctaLink.label,
                 "externalLink": ctaLink.externalLink,
-                "isLinkExternal": ctaLink.isLinkExternal,
                 "internalLink": ctaLink.internalLink-> {
                     "pageType": _type,
                     "slug": seoInformation.slug.current
@@ -73,7 +71,6 @@ export const siteSettingsPageQuery = () => /* groq */ `
                         "slug": seoInformation.slug.current
                     },
                     "externalLink": externalLink,
-                    isLinkExternal
                 },
                 linkCollections[]{
                     itemLink {
@@ -83,7 +80,6 @@ export const siteSettingsPageQuery = () => /* groq */ `
                             "slug": seoInformation.slug.current
                         },
                         "externalLink": externalLink,
-                        isLinkExternal
                     },
                     linkCollections[]{
                         itemLink {
@@ -93,7 +89,6 @@ export const siteSettingsPageQuery = () => /* groq */ `
                                 "slug": seoInformation.slug.current
                             },
                             "externalLink": externalLink,
-                            isLinkExternal
                         },
                         linkCollections[]{
                             itemLink {
@@ -103,7 +98,6 @@ export const siteSettingsPageQuery = () => /* groq */ `
                                     "slug": seoInformation.slug.current
                                 },
                                 "externalLink": externalLink,
-                                isLinkExternal
                             },
                             linkCollections[]{
                                 itemLink {
@@ -113,7 +107,6 @@ export const siteSettingsPageQuery = () => /* groq */ `
                                         "slug": seoInformation.slug.current
                                     },
                                     "externalLink": externalLink,
-                                    isLinkExternal
                                 },
                                 linkCollections[]{
                                     itemLink {
@@ -123,7 +116,6 @@ export const siteSettingsPageQuery = () => /* groq */ `
                                             "slug": seoInformation.slug.current
                                         },
                                         "externalLink": externalLink,
-                                        isLinkExternal
                                     },
                                     linkCollections[]
                                 }

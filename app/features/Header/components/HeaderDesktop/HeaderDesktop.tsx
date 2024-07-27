@@ -43,7 +43,7 @@ export const HeaderDesktop = ({
                                 <Link
                                     aria-label={ctaLink?.label}
                                     className='cta btn btn-primary'
-                                    target={ctaLink?.isLinkExternal ? '_blank' : '_self'}
+                                    target={ctaLink?.externalLink ? '_blank' : '_self'}
                                     href={`${ctaLink?.externalLink || ctaLink?.internalLink?.pageType}/${ctaLink?.internalLink?.slug}`}
                                 >
                                     {ctaLink?.label}
