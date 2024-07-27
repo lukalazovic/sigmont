@@ -1,7 +1,7 @@
 import { MdMenu } from 'react-icons/md';
 
 export default {
-    name: 'navigation',
+    name: 'desktopNavigation',
     type: 'document',
     title: 'Navigation',
     icon: MdMenu,
@@ -15,7 +15,7 @@ export default {
             name: 'navigationItems',
             type: 'array',
             title: 'Menu categories',
-            of: [{ type: 'navigationItem'}]
+            of: [{ type: 'desktopNavigationItem'}]
         }
     ]
 }

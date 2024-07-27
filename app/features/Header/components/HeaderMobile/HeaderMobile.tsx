@@ -118,8 +118,8 @@ export const HeaderMobile = ({
                                         onClick={handleLinkClick}
                                         aria-label={ctaLink.label}
                                         className='cta btn btn-primary'
-                                        target={ctaLink.isLinkExternal ? '_blank' : '_self'}
-                                        rel={ctaLink.isLinkExternal ? 'noopener noreferrer' : undefined}
+                                        target={ctaLink.externalLink ? '_blank' : '_self'}
+                                        rel={ctaLink.externalLink ? 'noopener noreferrer' : undefined}
                                         href={`${ctaLink.externalLink || `/${ctaLink.internalLink?.pageType}/${ctaLink.internalLink?.slug}`}`}
                                     >
                                         {ctaLink.label}

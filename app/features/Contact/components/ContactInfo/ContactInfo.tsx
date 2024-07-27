@@ -1,107 +1,58 @@
-import { Contacts } from "../../types/contacts";
+import React from 'react';
+import classNames from 'classnames';
+import { Address } from "@/app/features/Address/Address";
 import { SocialNetworksType } from "../../types/socialNetworks";
-import { SocialNetworks } from "../SocialNetworks/SocialNetworks";
+import { IAddressType } from "@/app/features/Address/types/address";
+import { SocialNetworks } from "@/app/features/SocialNetworks/SocialNetworks";
 
 interface IContactInfoProps {
     heading: string;
     mainIntro: string;
-    contacts: Contacts[];
     showForm: boolean;
     showSocialLinks: boolean;
+    addresses: IAddressType[];
     socialNetworks: SocialNetworksType;
 }
 
 export const ContactInfo = ({
     heading,
-    mainIntro,
-    contacts,
     showForm,
-    showSocialLinks,
+    mainIntro,
+    addresses,
     socialNetworks,
+    showSocialLinks
 }: IContactInfoProps) => {
-    const contactCount = contacts.length;
+    const addressesCount = addresses.length;
 
-    if (contactCount < 1) {
+    if (addressesCount < 1) {
         return null;
     }
 
-    if (showForm) {
-        return (
-            <div className="contact-info col-md-6">
-                <div className="page-content">
-                    <h2 className="fs-3 text-uppercase mb-4">{heading}</h2>
-                    <p>{mainIntro}</p>
-                    {contacts.map((c, i) => (
-                        <div key={i} className="col-md-6">
-                            <div className="content-box my-5">
-                                <h5 className="element-title text-uppercase fw-bold">
-                                    {c.title}
-                                </h5>
-                                <div className="contact-address">
-                                    <p>{c.address}</p>
-                                </div>
-                                <div className="contact-number">
-                                    {c.phone.map((p, i: number) => (
-                                        <a
-                                            key={i}
-                                            className="d-block"
-                                            href={`tel:${p}`}
-                                        >
-                                            {p}
-                                        </a>
-                                    ))}
-                                </div>
-                                <div className="email-address mt-2">
-                                    <a href={`mailto:${c.email}`}>{c.email}</a>
-                                </div>
-                            </div>
-                        </div>
+    const addressClasses = (i: number) => classNames({
+        'col-md-6': showForm,
+        'col-md-4': !showForm && addressesCount > 1,
+        'd-flex justify-content-center': !showForm && addressesCount === 1,
+        'border-end': !showForm && addressesCount > 1 && i < addressesCount - 1
+    });
+
+    return (
+        <div className={classNames('contact-info', { 'col-md-6': showForm, 'contact-list pb-5': !showForm })}>
+            <div className={classNames({ 'page-content': showForm, 'container': !showForm })}>
+                <h2 className='fs-3 text-uppercase mb-4'>{heading}</h2>
+                <p className='mb-4 pb-3'>{mainIntro}</p>
+                <div className={classNames({ 'row': !showForm })}>
+                    {addresses.map(({ title, email, phone, address }, i) => (
+                        <Address
+                            key={i}
+                            title={title}
+                            email={email}
+                            phone={phone}
+                            address={address}
+                            className={addressClasses(i)}
+                        />
                     ))}
                 </div>
                 {showSocialLinks && <SocialNetworks links={socialNetworks} />}
-            </div>
-        );
-    }
-
-    return (
-        <div className="contact-list pb-5">
-            <div className="container">
-                <div className="row">
-                    <h2 className="d-flex justify-content-center fs-3 text-uppercase mb-4">{heading}</h2>
-                    <p>{mainIntro}</p>
-                    {contacts.map((c, index) => (
-                        <div
-                            key={index}
-                            className={`col-md-${contactCount === 1 ? "12" : "4"} 
-                            ${contactCount > 1 && index < contactCount - 1 ? "border-end" : ""} 
-                            ${contactCount === 1 ? "d-flex justify-content-center" : ""}`}
-                        >
-                            <div className="content-box ps-3 my-4">
-                                <h5 className="element-title text-uppercase">
-                                    {c.title}
-                                </h5>
-                                <div className="contact-address">
-                                    <p>{c.address}</p>
-                                </div>
-                                <div className="contact-number">
-                                    {c.phone.map((p, i: number) => (
-                                        <a
-                                            key={i}
-                                            className="d-block"
-                                            href={`tel:${p}`}
-                                        >
-                                            {p}
-                                        </a>
-                                    ))}
-                                </div>
-                                <div className="email-address mt-2">
-                                    <a href={`mailto:${c.email}`}>{c.email}</a>
-                                </div>
-                            </div>
-                        </div>
-                    ))}
-                    <SocialNetworks links={socialNetworks} />
-                </div>
             </div>
         </div>
     );

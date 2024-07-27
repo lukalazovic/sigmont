@@ -29,15 +29,15 @@ export default async function Contact() {
                 <div className="row">
                     <ContactInfo
                         heading={heading}
+                        addresses={contacts}
                         mainIntro={mainIntro}
-                        contacts={contacts}
                         showForm={displayContactForm}
                         showSocialLinks={showSocialLinks}
                         socialNetworks={socialNetworks}
                     />
                     <ContactForm
-                        {...contactFormSettings}
                         {...siteEmailSettings}
+                        {...contactFormSettings}
                         showForm={displayContactForm}
                     />
                 </div>

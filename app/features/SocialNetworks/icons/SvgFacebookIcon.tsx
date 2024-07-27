@@ -1,6 +1,6 @@
 import { SvgProps } from "@/app/types/web/SvgProps";
 
-export function SvgFacebook({ className }: SvgProps) {
+export function SvgFacebookIcon({ className }: SvgProps) {
     return (
         <svg
             className={className}

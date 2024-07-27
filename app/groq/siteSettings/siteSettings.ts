@@ -30,6 +30,26 @@ export const siteSettingsPageQuery = () => /* groq */ `
             "logo": logo.asset->url,
             "mobileLogo": mobileLogo.asset->url
         },
+        siteFooterSettings{
+            desc,
+            showLogo,
+            subFooter,
+            showSocial,
+            navHeading,
+            showAddress,
+            showNewsletter,
+            "navigationItems": mainNavigation->navigationItems[]{
+                itemLink {
+                    label,
+                    "internalLink": internalLink-> {
+                        "pageType": _type,
+                        "slug": seoInformation.slug.current
+                    },
+                    "externalLink": externalLink,
+                    isLinkExternal
+                }
+            }
+        },
         siteHeaderSettings{
             ctaType,
             "ctaLink": {

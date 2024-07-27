@@ -1,6 +1,6 @@
 import { SvgProps } from "@/app/types/web/SvgProps";
 
-export function SvgTwitter({ className }: SvgProps) {
+export function SvgXIcon({ className }: SvgProps) {
     return (
         <svg
             className={className}
