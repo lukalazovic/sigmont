@@ -10,12 +10,6 @@ export default {
             description: 'Text displayed for the call to action.',
         },
         {
-            name: 'isLinkExternal',
-            title: 'Content is from external source',
-            type: 'boolean',
-            description: 'Check this if the link points to an external website or source.',
-        },
-        {
             name: 'internalLink',
             title: 'Internal Link',
             type: 'reference',

@@ -1,7 +1,7 @@
 import { MdAddBox, MdAddLink } from "react-icons/md";
 
 export default {
-    name: 'navigationItem',
+    name: 'desktopNavigationItem',
     type: 'object',
     title: 'Menu sub-categories',
     icon: MdAddBox,
@@ -17,7 +17,7 @@ export default {
             title: 'Sub links',
             description: 'List of links inside collection',
             type: 'array',
-            of: [{ type: 'navigationItem' }],
+            of: [{ type: 'desktopNavigationItem' }],
         }
     ],
     preview: {

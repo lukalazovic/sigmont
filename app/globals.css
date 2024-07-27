@@ -1,5 +1,7 @@
-@import './features/Header/HeaderTemplate.css';
-@import './components/Footer/Footer.css';
+@import './features/Header/Header.css';
+@import './features/Footer/Footer.css';
+@import './features/Address/Address.css';
+@import './features/SocialNetworks/SocialNetworks.css';
 
 *,
 *::before,

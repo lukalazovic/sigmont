@@ -11,7 +11,7 @@ export const MenuItemMobile = ({
     setActive,
     onLinkClick,
     linkCollections,
-    itemLink: { label, internalLink, externalLink, isLinkExternal }
+    itemLink: { label, internalLink, externalLink }
 }: IMenuItemMobileProps) => {
     const [isSubmenuActive, setIsSubmenuActive] = useState(false);
 
@@ -41,9 +41,9 @@ export const MenuItemMobile = ({
 
     const renderButton = () => (
         <button
+            aria-haspopup="true"
             onClick={handleSubmenuToggle}
             aria-expanded={isSubmenuActive}
-            aria-haspopup="true"
             className={classNames({ 'active': isSubmenuActive })}
             aria-controls={`submenu-${label?.replace(/\s+/g, '-').toLowerCase()}`}
             aria-label={isSubmenuActive ? `Collapse ${label} submenu` : `Expand ${label} submenu`}
@@ -60,8 +60,8 @@ export const MenuItemMobile = ({
             className={classNames('menu-item', { 'menu-item-submenu': linkCollections })}
         >
             {internalLink && renderLink(`/${internalLink.pageType}/${internalLink.slug}`)}
-            {!internalLink && isLinkExternal && externalLink && renderLink(externalLink, true)}
-            {!internalLink && (!isLinkExternal || !externalLink) && (
+            {!internalLink && externalLink && renderLink(externalLink, true)}
+            {!internalLink && !externalLink && (
                 <span
                     aria-label={label}
                     className={classNames({ 'active': isSubmenuActive })}

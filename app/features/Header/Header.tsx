@@ -1,10 +1,10 @@
 'use client';
 import React, { useState } from 'react';
-import { IHeaderTemplateProps } from './types/HeaderType';
+import { IHeaderProps } from './types/HeaderType';
 import { HeaderMobile } from './components/HeaderMobile/HeaderMobile';
 import { HeaderDesktop } from './components/HeaderDesktop/HeaderDesktop';
 
-export const HeaderTemplate = ({
+export const Header = ({
     ctaType,
     ctaLink,
     phoneNumber,
@@ -15,7 +15,7 @@ export const HeaderTemplate = ({
     showPhoneNumber,
     mobileMenuSlideIn,
     mobileHeaderPosition
-}: IHeaderTemplateProps) => {
+}: IHeaderProps) => {
     const [active, setActive] = useState(false);
 
     return (

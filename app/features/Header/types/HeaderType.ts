@@ -11,7 +11,6 @@ export interface ICTALinkProps {
         pageType: string;
     };
     externalLink?: string;
-    isLinkExternal?: string;
 }
 
 export interface IItemLinkProps {
@@ -41,7 +40,7 @@ export interface IHeaderMobileProps extends IBaseHeaderProps {
     setActive: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export interface IHeaderTemplateProps extends IBaseHeaderProps {
+export interface IHeaderProps extends IBaseHeaderProps {
     logoMobileUrl?: string;
     logoDesktopUrl: string;
 }

@@ -1,6 +1,6 @@
 import { SvgProps } from "@/app/types/web/SvgProps";
 
-export function SvgTiktok({ className }: SvgProps) {
+export function SvgTiktokIcon({ className }: SvgProps) {
     return (
         <svg
             className={className}

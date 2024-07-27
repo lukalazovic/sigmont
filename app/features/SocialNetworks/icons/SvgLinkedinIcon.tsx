@@ -1,6 +1,6 @@
 import { SvgProps } from "@/app/types/web/SvgProps";
 
-export function SvgLinkedin({ className }: SvgProps) {
+export function SvgLinkedinIcon({ className }: SvgProps) {
     return (
         <svg
             className={className}
