@@ -1,10 +1,10 @@
 import React from 'react';
-import { IFooterProps, IItemLinkProps } from './types/FooterType';
 import Link from 'next/link';
 import Image from 'next/image';
 import classNames from 'classnames';
-import { SocialNetworks } from '../SocialNetworks/SocialNetworks';
 import { Address } from '../Address/Address';
+import { IFooterProps, IItemLinkProps } from './types/FooterType';
+import { SocialNetworks } from '../SocialNetworks/SocialNetworks';
 
 export const Footer = ({
     desc,
@@ -12,6 +12,7 @@ export const Footer = ({
     subFooter,
     navHeading,
     addressInfo,
+    mobileLogoUrl,
     socialNetworks,
     showLogo = true,
     showSocial = true,
@@ -58,13 +59,24 @@ export const Footer = ({
                                     height={50}
                                     src={logoUrl}
                                     priority={true}
+                                    className={classNames({ 'logo-desktop': mobileLogoUrl })}
                                 />
+                                {mobileLogoUrl &&
+                                    <Image
+                                        alt='Logo'
+                                        width={50}
+                                        height={50}
+                                        priority={true}
+                                        src={mobileLogoUrl}
+                                        className='logo-mobile'
+                                    />
+                                }
                             </Link>
                         }
                         {desc &&
                             <p className='short-desc'>{desc}</p>
                         }
-                        {showAddress && 
+                        {showAddress &&
                             <Address {...addressInfo} />
                         }
                         {showSocial &&
@@ -74,28 +86,30 @@ export const Footer = ({
                     <div className='right'>
                         {navHeading && <h3>{navHeading}</h3>}
                         <div className='navigation-columns'>
-                            {columns.map((column, columnIndex) => (
-                                <ul key={columnIndex}>
-                                    {column.map((item, itemIndex) => (
-                                        <li key={itemIndex}>
-                                            {item.itemLink.internalLink ? (
-                                                renderLink(`/${item.itemLink.internalLink.pageType}/${item.itemLink.internalLink.slug}`, item.itemLink.label)
-                                            ) : (
-                                                item.itemLink.externalLink ? (
-                                                    renderLink(item.itemLink.externalLink, item.itemLink.label, true)
+                            <div className='navigation-columns-wrapper'>
+                                {columns.map((column, columnIndex) => (
+                                    <ul key={columnIndex}>
+                                        {column.map((item, itemIndex) => (
+                                            <li key={itemIndex}>
+                                                {item.itemLink.internalLink ? (
+                                                    renderLink(`/${item.itemLink.internalLink.pageType}/${item.itemLink.internalLink.slug}`, item.itemLink.label)
                                                 ) : (
-                                                    <span className='link'>{item.itemLink.label}</span>
-                                                )
-                                            )}
-                                        </li>
-                                    ))}
-                                </ul>
-                            ))}
+                                                    item.itemLink.externalLink ? (
+                                                        renderLink(item.itemLink.externalLink, item.itemLink.label, true)
+                                                    ) : (
+                                                        <span className='link'>{item.itemLink.label}</span>
+                                                    )
+                                                )}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </div>
                 {subFooter &&
-                    <div className='bottom'>
+                    <div className='bottom border-top'>
                         {subFooter}
                     </div>
                 }

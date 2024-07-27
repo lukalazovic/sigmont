@@ -71,6 +71,7 @@ export default async function RootLayout({
                     navHeading={navHeading}
                     addressInfo={contactInfo}
                     showAddress={showAddress}
+                    mobileLogoUrl={mobileLogo}
                     socialNetworks={socialNetworks}
                     navigationItems={footerNavigationItems}
                 />

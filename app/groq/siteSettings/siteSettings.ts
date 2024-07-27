@@ -11,7 +11,8 @@ export const siteSettingsPageQuery = () => /* groq */ `
                 "ctaLink": ctaConfiguration.ctaLinkUrl-> {
                     "type": _type,
                     "slug": seoInformation.slug.current
-                }
+                },
+                isFullHeight
             },
             contacts,
             showSocialLinks,

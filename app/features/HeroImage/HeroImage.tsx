@@ -1,39 +1,30 @@
 import classNames from "classnames";
+import { IHeroImageProps } from "./types/heroImageType";
 
-interface IHeroImageProps {
-    title: string;
-    className?: string;
-    imageSrc: string;
-    imageAlt: string;
-    ctaLabel: string;
-    ctaLink: {
-        type: string;
-        slug: string;
-    };
-    fullHeight: boolean;
-}
 export const HeroImage = ({
     title,
+    ctaLink,
     imageSrc,
     imageAlt,
     ctaLabel,
-    ctaLink,
     className,
-    fullHeight = true,
+    isFullHeader,
+    isFullHeight,
 }: IHeroImageProps) => {
-    const heroImageClassName = classNames(
-        className,
-        "site-blocks-cover overlay",
+
+    const heroImageClassName = classNames(className, 'hero-image', 
         {
-            ["site-blocks-no-full-height"]: !fullHeight,
+            'hero-image-no-full-height': !isFullHeight,
+            'hero-image-fullheader-height': isFullHeader
         }
     );
+
     return (
         <section className={heroImageClassName} style={{ backgroundImage: `url(${imageSrc || "none"})` }} aria-label={imageAlt}>
             <div className="container">
-                <div className="row py-5 mt-5">
-                    <div className="d-flex flex-wrap flex-column justify-content-center align-items-center my-5 py-5 text-white">
-                        <h2 className="text-white fw-bold display-2 mt-5">
+                <div className="row">
+                    <div className="d-flex flex-wrap flex-column justify-content-center align-items-center p-4 text-white">
+                        <h2 className="text-white fw-bold display-2">
                             {title}
                         </h2>
                         {ctaLabel && ctaLink && (

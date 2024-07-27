@@ -22,6 +22,7 @@ export interface IFooterProps {
     showLogo?: boolean;
     navHeading?: string;
     showSocial?: boolean;
+    mobileLogoUrl?: string;
     showAddress?: boolean;
     addressInfo: IAddressType;
     socialNetworks: SocialNetworksType;

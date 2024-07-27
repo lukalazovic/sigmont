@@ -29,6 +29,12 @@ export default {
             type: 'ctaConfiguration',
             title: 'Call to Action Configuration',
             description: 'Optional: Configure the call-to-action button settings that will be associated with the hero image. This includes the button text and the target link.',
+        },
+        {
+            name: 'isFullHeight',
+            type: 'boolean',
+            title: 'Full Height Display',
+            description: 'Toggle this option to display the hero image at full height for a more immersive look, or keep it at the regular height of 600px for a more standard appearance.',
         }
     ],
 };
