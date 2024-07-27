@@ -33,6 +33,7 @@ export default {
         },
         {
             name: 'heroImage',
+            title: 'Hero Image',
             type: 'heroImage',
             group: 'content',
         },

@@ -7,6 +7,7 @@ interface IContactInfoProps {
     mainIntro: string;
     contacts: Contacts[];
     showForm: boolean;
+    showSocialLinks: boolean;
     socialNetworks: SocialNetworksType;
 }
 
@@ -15,6 +16,7 @@ export const ContactInfo = ({
     mainIntro,
     contacts,
     showForm,
+    showSocialLinks,
     socialNetworks,
 }: IContactInfoProps) => {
     const contactCount = contacts.length;
@@ -56,7 +58,7 @@ export const ContactInfo = ({
                         </div>
                     ))}
                 </div>
-                <SocialNetworks links={socialNetworks} />
+                {showSocialLinks && <SocialNetworks links={socialNetworks} />}
             </div>
         );
     }

@@ -26,6 +26,12 @@ export default {
             description: 'Main introduction text or paragraph displayed on the contact page.'
         },
         {
+            name: 'heroImage',
+            title: 'Hero Image',
+            type: 'heroImage',
+            description: 'Image displayed prominently at the top of the page',
+        },
+        {
             name: 'contacts',
             title: 'All Offices or Locations',
             type: 'array',
@@ -35,6 +41,12 @@ export default {
                     type: 'contactInfo'
                 }
             ]
+        },
+        {
+            name: 'showSocialLinks',
+            title: 'Show Social Links',
+            type: 'boolean',
+            description: 'Show social links on contact page that are defined in Global Settings'
         },
         {
             name: 'displayContactForm',
