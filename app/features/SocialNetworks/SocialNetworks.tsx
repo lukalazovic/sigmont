@@ -48,6 +48,7 @@ export const SocialNetworks = ({ links }: SocialNetworksProps) => {
                                 href={url}
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                aria-label={`Visit our ${key} page`}
                             >
                                 <IconComponent />
                             </Link>
