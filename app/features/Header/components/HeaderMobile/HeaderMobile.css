@@ -272,7 +272,7 @@
     }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 992px) {
     .headerMobile.desktopHidden {
         display: none;
     }
