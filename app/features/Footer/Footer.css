@@ -73,10 +73,6 @@
             flex: 1;
             padding-left: 0;
 
-            @media (min-width: 992px) {
-                padding-left: 100px;
-            }
-
             .navigation-columns {
                 display: flex;
                 flex-direction: column;
@@ -113,7 +109,11 @@
                         /* add here style for quick links */
                     }
                 }
-            }            
+            }
+            
+            @media (min-width: 992px) {
+                padding-left: 100px;
+            }           
         }
     }
 
