@@ -22,6 +22,7 @@ export const MenuItemMobile = ({
     const handleLinkClick = () => {
         onLinkClick();
         setActive(false);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
     const renderLink = (

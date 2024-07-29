@@ -39,6 +39,7 @@ export const HeaderMobile = ({
     const handleLinkClick = () => {
         onLinkClick();
         setActive(false);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
     return (

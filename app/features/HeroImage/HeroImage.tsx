@@ -24,7 +24,7 @@ export const HeroImage = ({
             <div className="container">
                 <div className="row">
                     <div className="d-flex flex-wrap flex-column justify-content-center align-items-center p-4 text-white">
-                        <h2 className="text-white fw-bold display-2">
+                        <h2 className="text-white fw-bold">
                             {title}
                         </h2>
                         {ctaLabel && ctaLink && (

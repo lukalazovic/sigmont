@@ -110,7 +110,7 @@ export const Footer = ({
                 </div>
                 {subFooter &&
                     <div className='bottom border-top'>
-                        {subFooter}
+                        {`${new Date().getFullYear()} | ${subFooter}`}
                     </div>
                 }
             </div>

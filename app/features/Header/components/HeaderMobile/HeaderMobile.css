@@ -236,6 +236,7 @@
     bottom: 0;
     top: unset;
     position: fixed;
+    box-shadow: 0 -3px 8px rgba(9, 9, 9, 0.12);
 
     .drawer {
         top: unset;
@@ -252,6 +253,7 @@
 .backdrop {
     top: 0;
     left: 0;
+    z-index: 2;
     padding: 0;
     width: 100vw;
     border: none;
