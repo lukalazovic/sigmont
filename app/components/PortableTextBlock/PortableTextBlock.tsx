@@ -5,7 +5,6 @@ import client from '../../client';
 
 interface IBlock {
     _type: 'block';
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     node: any;
     style?: string;
     children?: ReactNode;
@@ -20,12 +19,10 @@ interface IImage {
             _ref: string;
             _type: string;
         };
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         markDefs: any;
     };
     options: {
         hotspot?: boolean;
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         imageOptions: any;
         ignoreUnknownTypes: boolean;
     };
