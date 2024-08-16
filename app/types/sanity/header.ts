@@ -14,7 +14,7 @@ export default {
             name: 'mainNavigation',
             title: 'Main Menu',
             type: 'reference',
-            to: { type: 'navigation' },
+            to: { type: 'desktopNavigation' },
             description: 'Select the main navigation menu to be used in the header. This defines the primary menu items displayed on the site.'
         },
         {

@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@sanity/block-content-to-react": "^3.0.0",
+    "@sanity/image-url": "^1.0.2",
     "@sanity/vision": "^3.49.0",
     "bootstrap": "^5.3.3",
     "classnames": "^2.5.1",

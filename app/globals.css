@@ -1,5 +1,8 @@
-@import './features/Header/HeaderTemplate.css';
-@import './components/Footer/Footer.css';
+@import './features/Header/Header.css';
+@import './features/Footer/Footer.css';
+@import './features/Address/Address.css';
+@import './features/HeroImage/HeroImage.css';
+@import './features/SocialNetworks/SocialNetworks.css';
 
 *,
 *::before,
@@ -58,17 +61,6 @@ body {
 
 main {
   flex: 1;
-  margin-top: 77px;
-}
-
-body.mt-0 main {
-  margin-top: 0;
-}
-
-@media (min-width: 768px) {
-  body.mt-helper main {
-    margin-top: 133px;
-  }
 }
 
 h1,.h1,h2,.h2,h3,.h3,h4,.h4,h5,.h5,h6,.h6 {

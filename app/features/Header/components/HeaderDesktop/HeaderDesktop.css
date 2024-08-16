@@ -1,7 +1,9 @@
 .headerDesktop {
+    top: 0;
+    left: 0;
     z-index: 2;
-    width: 100vw;
-    position: fixed;
+    width: 100%;
+    position: sticky;
     background-color: #fff;
     box-shadow: 0 3px 8px rgba(9, 9, 9, 0.12);
 
@@ -177,7 +179,7 @@
     }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 992px) {
     .headerDesktop.mobileNone {
         display: block;
     }

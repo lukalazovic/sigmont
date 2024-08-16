@@ -1,0 +1,59 @@
+.hero-image {
+    position: relative;
+    height: calc(100vh - 77px);
+
+    &:after {
+        top: 0;
+        left: 0;
+        z-index: 0;
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+    
+    &.hero-image-fullheader-height {
+        height: calc(100vh - 77px);
+
+        @media (min-width: 768px) {
+            height: calc(100vh - 133px);
+        }
+    }
+
+    &.hero-image-no-full-height {
+        height: 400px;
+
+        @media (min-width: 768px) {
+            height: 500px;
+        }
+    }
+
+    .container {
+        z-index: 1;
+        height: 100%;
+        margin: 0 auto;
+        position: relative;
+
+        .row {
+            height: 100%;
+        }
+
+        h2 {
+            width: 100%;
+            margin-bottom: 0;
+            text-align: center;
+            word-wrap: break-word;
+        }
+    }
+
+    .bgImage {
+        top: 0;
+        left: 0;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+    }
+}

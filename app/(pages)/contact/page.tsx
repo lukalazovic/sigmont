@@ -3,7 +3,7 @@ import client from "@/app/client";
 import { ContactInfo } from "@/app/features/Contact/components/ContactInfo/ContactInfo";
 import { ContactForm } from "@/app/features/Contact/components/ContactForm/ContactForm";
 import { siteSettingsPageQuery } from "@/app/groq/siteSettings/siteSettings";
-import { HeroImage } from "@/app/components/HeroImage/HeroImage";
+import { HeroImage } from '@/app/features/HeroImage/HeroImage';
 
 export default async function Contact() {
     noStore();
@@ -11,33 +11,40 @@ export default async function Contact() {
     const {
         contactPageSettings: {
             heading,
+            contacts,
             mainIntro,
             heroImage,
-            contacts,
-            contactFormSettings,
-            displayContactForm,
             showSocialLinks,
+            displayContactForm,
+            contactFormSettings,
         },
         siteEmailSettings,
         globalSettings: { socialNetworks },
+        siteHeaderSettings: {
+            ctaType,
+            showPhone,
+        }
     } = await client.fetch(siteSettingsPageQuery());
 
     return (
         <main>
-            <HeroImage {...heroImage} />
+            <HeroImage
+                isFullHeader={ctaType || showPhone}
+                {...heroImage}
+            />
             <div className="container mt-5 mb-5">
                 <div className="row">
                     <ContactInfo
                         heading={heading}
+                        addresses={contacts}
                         mainIntro={mainIntro}
-                        contacts={contacts}
                         showForm={displayContactForm}
-                        showSocialLinks={showSocialLinks}
                         socialNetworks={socialNetworks}
+                        showSocialLinks={showSocialLinks}
                     />
                     <ContactForm
-                        {...contactFormSettings}
                         {...siteEmailSettings}
+                        {...contactFormSettings}
                         showForm={displayContactForm}
                     />
                 </div>

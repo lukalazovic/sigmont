@@ -3,8 +3,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../globals.css";
-import { Footer } from "../components/Footer/Footer";
-import { HeaderTemplate } from "../features/Header/HeaderTemplate";
+import { Footer } from "../features/Footer/Footer";
+import { Header } from "../features/Header/Header";
 import { siteSettingsPageQuery } from "../groq/siteSettings/siteSettings";
 import client from "../client";
 
@@ -32,14 +32,24 @@ export default async function RootLayout({
         globalSettings: {
             logo,
             mobileLogo,
-            contactInfo
+            contactInfo,
+            socialNetworks
+        },
+        siteFooterSettings: {
+            desc,
+            showLogo,
+            subFooter,
+            showSocial,
+            navHeading,
+            showAddress,
+            navigationItems: footerNavigationItems
         }
     } = await client.fetch(siteSettingsPageQuery());
 
     return (
         <html lang="en">
             <body className={inter.className}>
-                <HeaderTemplate
+                <Header
                     ctaLink={ctaLink}
                     ctaType={ctaType}
                     logoDesktopUrl={logo}
@@ -52,7 +62,19 @@ export default async function RootLayout({
                     mobileHeaderPosition={mobileHeaderPosition}
                 />
                 {children}
-                <Footer />
+                <Footer
+                    desc={desc}
+                    logoUrl={logo}
+                    showLogo={showLogo}
+                    subFooter={subFooter}
+                    showSocial={showSocial}
+                    navHeading={navHeading}
+                    addressInfo={contactInfo}
+                    showAddress={showAddress}
+                    mobileLogoUrl={mobileLogo}
+                    socialNetworks={socialNetworks}
+                    navigationItems={footerNavigationItems}
+                />
             </body>
         </html>
     );

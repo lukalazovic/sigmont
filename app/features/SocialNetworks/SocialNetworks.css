@@ -1,0 +1,33 @@
+.socialNetworks-wrapper {
+    margin-bottom: 20px;
+
+    .socials-heading {
+        margin-bottom: 5px;
+    }
+
+    .socialNetworks-list {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        column-gap: 20px;
+        align-items: flex-end;
+
+        list-style: none;
+
+        li a {
+            svg {
+                width: auto;
+                height: 20px;
+                
+                path {
+                    opacity: 0.5;
+                    fill: var(--accent-color);
+                }
+            }
+            
+            &:hover svg path {
+                opacity: 1;
+            }
+        }
+    }
+}
