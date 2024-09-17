@@ -4,6 +4,7 @@ export { default as ctaConfiguration } from './ctaConfiguration';
 export { default as heroImage } from './heroImage';
 export { default as seoSettings } from './seoSettings';
 export { default as siteSettings } from './settings';
+export { default as cookieSettings } from './cookieSettings';
 export { default as emailSettings } from './emailSettings';
 export { default as globalSettings } from './globalSettings';
 export { default as socilalNetworks } from './socialNetworks';
