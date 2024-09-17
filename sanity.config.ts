@@ -9,7 +9,7 @@ export default defineConfig({
   name: 'default',
   title: 'Studio',
 
-  projectId: 'l5pfekwx',
+  projectId: 'cb6i28mk',
   dataset: 'production',
   
   basePath: '/studio',

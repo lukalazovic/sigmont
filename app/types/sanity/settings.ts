@@ -7,7 +7,6 @@ export default {
     icon: MdSettings,
     groups: [
         { name: 'globalSettings', title: 'Global settings', default: true },
-        { name: 'cookieSettings', title: 'Cookie settings' },
         { name: 'seoSettings', title: 'SEO Settings' },
         { name: 'siteHeader', title: 'Site header settings' },
         { name: 'siteFooter', title: 'Site footer settings' },
@@ -15,12 +14,6 @@ export default {
         { name: 'contactPage', title: 'Contact Page settings' },
     ],
     fields: [
-        {
-            name: 'cookieSettings',
-            title: 'Cookie consent settings',
-            type: 'cookieSettings',
-            group: 'cookieSettings',
-        },
         {
             name: 'globalSettings',
             title: 'Global settings',
