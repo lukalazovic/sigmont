@@ -48,18 +48,5 @@ export default {
             type: 'boolean',
             description: 'Show social links on contact page that are defined in Global Settings'
         },
-        {
-            name: 'displayContactForm',
-            title: 'Display Contact Form',
-            type: 'boolean',
-            description: 'Toggle to enable or disable the contact form on the contact page.'
-        },
-        {
-            name: 'contactFormSettings',
-            title: 'Contact Form Settings',
-            type: 'contactFormSettings',
-            fieldset: 'formSettings',
-            hidden: ({ parent }: { parent: { displayContactForm: boolean } }) => !parent?.displayContactForm
-        }
     ]
 };

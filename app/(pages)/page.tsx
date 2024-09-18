@@ -9,10 +9,9 @@ export default function Home() {
                 <ul>
                     <li><a href="/studio" target="_blank">Studio</a></li>
                     <li><a href="/landing/34">Landing page 34</a></li>
-                    <li><a href="/about">About page</a></li>
-                    <li><a href="/contact">Contact page</a></li>
-                    <li><a href="/article/34">Article list page</a></li>
-                    <li><a href="/article/49">Article page 49</a></li>
+                    <li><a href="/kontakt">Contact page</a></li>
+                    <li><a href="/usluge/limarski-radovi">Limarski radovi</a></li>
+                    <li><a href="/usluge/49">Service page 49</a></li>
                 </ul>
             </div>
         </main>

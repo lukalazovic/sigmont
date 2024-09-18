@@ -179,7 +179,7 @@
     }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1420px) {
     .headerDesktop.mobileNone {
         display: block;
     }

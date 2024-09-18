@@ -16,7 +16,7 @@ export default {
             description: 'Select the internal page or document to link to.',
             to: [
                 { type: 'landing', title: 'Landing Page' },
-                { type: 'article', title: 'Article Page' },
+                { type: 'service', title: 'Service Page' },
             ],
         },
         {

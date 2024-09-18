@@ -16,8 +16,6 @@ export const siteSettingsPageQuery = () => /* groq */ `
             },
             contacts,
             showSocialLinks,
-            displayContactForm,
-            contactFormSettings,
         },
         siteEmailSettings{
             userId,
@@ -39,19 +37,15 @@ export const siteSettingsPageQuery = () => /* groq */ `
             navHeading,
             showAddress,
             showNewsletter,
-            "navigationItems": mainNavigation->navigationItems[]{
-                itemLink {
-                    label,
-                    "internalLink": internalLink-> {
+            mainNavigation[]{
+                    reference->{
                         "pageType": _type,
-                        "slug": seoInformation.slug.current
-                    },
-                    "externalLink": externalLink,
-                }
-            }
+                        "slug": seoInformation.slug.current,
+                        "label": seoInformation.title
+                    }
+            },
         },
         siteHeaderSettings{
-            ctaType,
             "ctaLink": {
                 "label": ctaLink.label,
                 "externalLink": ctaLink.externalLink,
@@ -61,64 +55,38 @@ export const siteSettingsPageQuery = () => /* groq */ `
                 }
             },
             showPhone,
-            ctaButtonLabel,
             menuSlideDirection,
             mobileHeaderPosition,
-            "navigationItems": mainNavigation->navigationItems[]{
-                itemLink {
-                    label,
-                    "internalLink": internalLink-> {
-                        "pageType": _type,
-                        "slug": seoInformation.slug.current
-                    },
-                    "externalLink": externalLink,
+            mainNavigation[]{
+                itemLink{
+                    reference->{
+                    "pageType": _type,
+                    "slug": seoInformation.slug.current,
+                    "label": seoInformation.title
+                    }
                 },
                 linkCollections[]{
-                    itemLink {
-                        label,
-                        "internalLink": internalLink-> {
+                    itemLink{
+                        reference->{
                             "pageType": _type,
-                            "slug": seoInformation.slug.current
-                        },
-                        "externalLink": externalLink,
+                            "slug": seoInformation.slug.current,
+                            "label": seoInformation.title
+                        }
                     },
                     linkCollections[]{
-                        itemLink {
-                            label,
-                            "internalLink": internalLink-> {
+                        itemLink{
+                            reference->{
                                 "pageType": _type,
-                                "slug": seoInformation.slug.current
-                            },
-                            "externalLink": externalLink,
-                        },
+                                "slug": seoInformation.slug.current,
+                                "label": seoInformation.title
+                        }
+                    },
                         linkCollections[]{
-                            itemLink {
-                                label,
-                                "internalLink": internalLink-> {
+                            itemLink{
+                                reference->{
                                     "pageType": _type,
-                                    "slug": seoInformation.slug.current
-                                },
-                                "externalLink": externalLink,
-                            },
-                            linkCollections[]{
-                                itemLink {
-                                    label,
-                                    "internalLink": internalLink-> {
-                                        "pageType": _type,
-                                        "slug": seoInformation.slug.current
-                                    },
-                                    "externalLink": externalLink,
-                                },
-                                linkCollections[]{
-                                    itemLink {
-                                        label,
-                                        "internalLink": internalLink-> {
-                                            "pageType": _type,
-                                            "slug": seoInformation.slug.current
-                                        },
-                                        "externalLink": externalLink,
-                                    },
-                                    linkCollections[]
+                                    "slug": seoInformation.slug.current,
+                                    "label": seoInformation.title
                                 }
                             }
                         }

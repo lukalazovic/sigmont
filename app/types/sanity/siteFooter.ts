@@ -11,13 +11,6 @@ export default {
     ],
     fields: [
         {
-            name: 'showNewsletter',
-            title: 'Display Newsletter Block',
-            type: 'boolean',
-            description: 'Toggle to display the newsletter block at the top of the footer section.',
-            initialValue: false,
-        },
-        {
             name: 'showLogo',
             title: 'Display Logo',
             type: 'boolean',
@@ -54,9 +47,9 @@ export default {
         {
             name: 'mainNavigation',
             title: 'Navigation Links',
-            type: 'reference',
-            description: 'Reference to a collection of quick navigation links to be displayed in the footer for easy access to important pages. Note: Sub-links cannot be added to these links, only first-level links are allowed.',
-            to: { type: 'footerNavigation' },
+            type: 'array',
+            description: 'Reference to a collection of quick navigation links to be displayed in the footer for easy access to important pages.',
+            of: [{ type: 'internalLink'}],
             fieldset: 'footerNavigation'
         },
         {

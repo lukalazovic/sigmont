@@ -4,28 +4,28 @@ import client from "@/app/client";
 import { unstable_noStore as noStore } from 'next/cache';
 
 import { PortableTextContent } from "@/app/components/PortableTextBlock/PortableTextBlock";
-import { articlePageQuery } from "@/app/groq/article/article";
 import { PageProps } from "@/app/types/web/PageProps";
 
 import { ContentAreaContainer } from "@/app/components/ContentAreaContainer/ContentAreaContainer";
 import { ISeoInformation } from "@/app/types/web/SeoInformationProps";
+import { servicePageQuery } from "@/app/groq/service/service";
 
-interface IArticleProps {
+interface IServiceProps {
     params: PageProps;
 }
 
-export interface IArticlePageResponse {
+export interface IServicePageResponse {
     publishDate: string;
     name: string;
     mainBody: any;
     seoInformation: ISeoInformation;
     content: any;
 }
-export default async function Article({ params }: IArticleProps) {
+export default async function Service({ params }: IServiceProps) {
     noStore();
     const { slug } = params;
 
-    const data: IArticlePageResponse = await client.fetch(articlePageQuery({ slug }))
+    const data: IServicePageResponse = await client.fetch(servicePageQuery({ slug }))
 
     return (
         <main>

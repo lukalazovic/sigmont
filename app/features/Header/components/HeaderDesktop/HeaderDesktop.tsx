@@ -7,16 +7,15 @@ import { IHeaderDesktopProps } from '../../types/HeaderType';
 
 export const HeaderDesktop = ({
     logoUrl,
-    ctaType,
     ctaLink,
-    ctaBtnLabel,
     phoneNumber,
     showPhoneNumber,
     navigationItems
 }: IHeaderDesktopProps) => {
+
     return (
         <header className='headerDesktop mobileNone'>
-            {(showPhoneNumber || !!ctaType) &&
+            {(showPhoneNumber || !!ctaLink) &&
                 <div className='top-wrapper'>
                     <div className='inner'>
                         {showPhoneNumber && (
@@ -29,22 +28,13 @@ export const HeaderDesktop = ({
                                 {phoneNumber}
                             </Link>
                         )}
-                        {ctaType === 'button' &&
-                            (
-                                <button
-                                    aria-label={ctaBtnLabel}
-                                    className='btn btn-primary'
-                                >
-                                    {ctaBtnLabel}
-                                </button>
-                            )}
-                        {ctaType === 'link' &&
+                        {ctaLink &&
                             (
                                 <Link
                                     aria-label={ctaLink?.label}
                                     className='cta btn btn-primary'
                                     target={ctaLink?.externalLink ? '_blank' : '_self'}
-                                    href={`${ctaLink?.externalLink || ctaLink?.internalLink?.pageType}/${ctaLink?.internalLink?.slug}`}
+                                    href={`${ctaLink?.externalLink || `/${ctaLink?.internalLink?.pageType}/${ctaLink?.internalLink?.slug}`}`}
                                 >
                                     {ctaLink?.label}
                                 </Link>
@@ -63,6 +53,12 @@ export const HeaderDesktop = ({
                     />
                 </Link>
                 <ul className='navigation'>
+                    <li role='none' className={'menu-item'}>
+                        <Link href={'/'} target={'_self'} aria-label={'Početna'} className='menu-link'>Početna</Link>
+                    </li>
+                    <li role='none' className={'menu-item'}>
+                        <Link href={'/usluge'} target={'_self'} aria-label={'Usluge'} className='menu-link'>Usluge</Link>
+                    </li>
                     {navigationItems?.map((item, idx) => (
                         <MenuItemDesktop
                             key={idx}
@@ -70,6 +66,9 @@ export const HeaderDesktop = ({
                             linkCollections={item.linkCollections}
                         />
                     ))}
+                    <li role='none' className={'menu-item'}>
+                        <Link href={'/kontakt'} target={'_self'} aria-label={'Kontakt'} className='menu-link'>Kontakt</Link>
+                    </li>
                 </ul>
             </div>
         </header>

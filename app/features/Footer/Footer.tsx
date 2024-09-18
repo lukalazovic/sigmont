@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import classNames from 'classnames';
 import { Address } from '../Address/Address';
-import { IFooterProps, IItemLinkProps } from './types/FooterType';
+import { IFooterProps } from './types/FooterType';
 import { SocialNetworks } from '../SocialNetworks/SocialNetworks';
 
 export const Footer = ({
@@ -19,32 +19,30 @@ export const Footer = ({
     showAddress = true,
     navigationItems = [],
 }: IFooterProps) => {
-
-    const renderLink = (
-        href: string,
-        label: string,
-        isExternal = false
-    ) => (
-        <Link
-            href={href}
-            className='link'
-            aria-label={label}
-            target={isExternal ? '_blank' : '_self'}
-            rel={isExternal ? 'noopener noreferrer' : undefined}
-        >
-            {label}
-        </Link>
-    );
-
-    const divideIntoColumns = (items: IItemLinkProps[], itemsPerColumn: number): IItemLinkProps[][] => {
-        const columns: IItemLinkProps[][] = [];
+    const flatNavigationItems = navigationItems.map(item => item.reference);
+    const divideIntoColumns = (items: any[], itemsPerColumn: number): any[][] => {
+        const columns: any[][] = [];
         for (let i = 0; i < items.length; i += itemsPerColumn) {
             columns.push(items.slice(i, i + itemsPerColumn));
         }
         return columns;
     };
 
-    const columns = divideIntoColumns(navigationItems, 5);
+    const columns = divideIntoColumns(flatNavigationItems, 5);
+
+    const renderLink = (
+        href: string,
+        label: string,
+    ) => (
+        <Link
+            href={href}
+            className='link'
+            target={'_self'}
+            aria-label={label}
+        >
+            {label}
+        </Link>
+    );
 
     return (
         <footer className='footer border-top'>
@@ -91,15 +89,7 @@ export const Footer = ({
                                     <ul key={columnIndex}>
                                         {column.map((item, itemIndex) => (
                                             <li key={itemIndex}>
-                                                {item.itemLink.internalLink ? (
-                                                    renderLink(`/${item.itemLink.internalLink.pageType}/${item.itemLink.internalLink.slug}`, item.itemLink.label)
-                                                ) : (
-                                                    item.itemLink.externalLink ? (
-                                                        renderLink(item.itemLink.externalLink, item.itemLink.label, true)
-                                                    ) : (
-                                                        <span className='link'>{item.itemLink.label}</span>
-                                                    )
-                                                )}
+                                                {renderLink(`/${item.pageType}/${item.slug}`, item.label)}
                                             </li>
                                         ))}
                                     </ul>
@@ -115,5 +105,5 @@ export const Footer = ({
                 }
             </div>
         </footer>
-    )
-}
+    );
+};

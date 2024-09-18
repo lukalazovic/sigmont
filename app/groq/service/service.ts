@@ -1,7 +1,7 @@
 import { trimQuery } from "@/app/utils/trim-query";
 import { blockContentQuery } from "../blocks/block-content-query";
 
-export const articlePageQueryBase = () => {
+export const servicePageQueryBase = () => {
     return /* groq */ `
         "publishDate": _createdAt,
         name,
@@ -11,7 +11,7 @@ export const articlePageQueryBase = () => {
     `;
 };
 
-export const articlePageQuery = ({ slug } /* groq */) =>
-    `*[_type == 'article' && seoInformation.slug.current == '${slug}'][0]{
-    ${trimQuery(articlePageQueryBase())}
+export const servicePageQuery = ({ slug } /* groq */) =>
+    `*[_type == 'service' && seoInformation.slug.current == '${slug}'][0]{
+    ${trimQuery(servicePageQueryBase())}
 }`;

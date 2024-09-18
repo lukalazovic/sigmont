@@ -13,17 +13,23 @@ export interface ICTALinkProps {
     externalLink?: string;
 }
 
+export interface IInternalLinkProps {
+    slug: string;
+    pageType: string;
+    label: string;
+}
+
 export interface IItemLinkProps {
-    itemLink: ICTALinkProps;
+    itemLink: {
+        reference: IInternalLinkProps;
+    }
     linkCollections?: IItemLinkProps[];
 }
 
 export interface IBaseHeaderProps {
-    ctaBtnLabel?: string;
     phoneNumber?: string;
     ctaLink?: ICTALinkProps;
     showPhoneNumber?: boolean;
-    ctaType?: 'button' | 'link';
     navigationItems?: IItemLinkProps[];
     mobileMenuSlideIn?: 'left' | 'right';
     mobileHeaderPosition?: 'top' | 'bottom';

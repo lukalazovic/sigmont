@@ -21,20 +21,6 @@ export default {
             group: 'content',
         },
         {
-            name: 'heading',
-            title: 'Heading',
-            type: 'string',
-            description: 'Main title or heading for the landing page.',
-            group: 'content',
-        },
-        {
-            name: 'subHeading',
-            title: 'Sub Heading',
-            type: 'string',
-            description: 'Optional: Subtitle or secondary heading.',
-            group: 'content',
-        },
-        {
             name: 'heroImage',
             title: 'Hero Image',
             type: 'heroImage',

@@ -21,11 +21,9 @@ export default async function RootLayout({
 }>) {
     const {
         siteHeaderSettings: {
-            ctaType,
             ctaLink,
             showPhone,
-            ctaButtonLabel,
-            navigationItems,
+            mainNavigation,
             menuSlideDirection,
             mobileHeaderPosition
         },
@@ -42,7 +40,7 @@ export default async function RootLayout({
             showSocial,
             navHeading,
             showAddress,
-            navigationItems: footerNavigationItems
+            mainNavigation: footerNavigationItems
         }
     } = await client.fetch(siteSettingsPageQuery());
 
@@ -51,12 +49,10 @@ export default async function RootLayout({
             <body className={inter.className}>
                 <Header
                     ctaLink={ctaLink}
-                    ctaType={ctaType}
                     logoDesktopUrl={logo}
                     logoMobileUrl={mobileLogo}
                     showPhoneNumber={showPhone}
-                    ctaBtnLabel={ctaButtonLabel}
-                    navigationItems={navigationItems}
+                    navigationItems={mainNavigation}
                     phoneNumber={contactInfo?.phone[0]}
                     mobileMenuSlideIn={menuSlideDirection}
                     mobileHeaderPosition={mobileHeaderPosition}

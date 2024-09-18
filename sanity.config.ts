@@ -2,7 +2,7 @@ import {defineConfig} from 'sanity';
 import {visionTool} from '@sanity/vision';
 import { schemaTypes } from './app/schemas';
 import {structureTool} from 'sanity/structure';
-import { MdDescription } from 'react-icons/md';
+import { MdConstruction, MdDescription, MdPages, MdSettings } from 'react-icons/md';
 
 
 export default defineConfig({
@@ -21,19 +21,19 @@ export default defineConfig({
         .items([
           S.listItem()
             .title('Settings')
-            .icon(MdDescription)
+            .icon(MdSettings)
             .child(
               S.editor().title('Settings').schemaType('siteSettings').documentId('siteSettings')
             ),
             S.listItem()
             .title('Pages')
-            .icon(MdDescription)
+            .icon(MdPages)
             .child(
                 S.list()
                     .title('Pages')
                     .items([
-                        S.documentTypeListItem('landing').title('Landing Page'),
-                        S.documentTypeListItem('article').title('Article Page'),
+                        S.documentTypeListItem('landing').title('Landing Page').icon(MdDescription),
+                        S.documentTypeListItem('service').title('Service Page').icon(MdConstruction),
                     ])
             )
         ]),

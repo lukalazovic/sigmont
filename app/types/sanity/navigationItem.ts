@@ -1,14 +1,14 @@
 import { MdAddBox, MdAddLink } from "react-icons/md";
 
 export default {
-    name: 'desktopNavigationItem',
+    name: 'navigationItem',
     type: 'object',
     title: 'Menu sub-categories',
     icon: MdAddBox,
     fields:[
         {
             name: 'itemLink',
-            type: 'callToAction',
+            type: 'internalLink',
             title: 'Menu link',
             description: 'Add information for menu link',
         },
@@ -17,16 +17,19 @@ export default {
             title: 'Sub links',
             description: 'List of links inside collection',
             type: 'array',
-            of: [{ type: 'desktopNavigationItem' }],
+            of: [{ type: 'navigationItem' }],
         }
     ],
     preview: {
-        select: {
-            title: `itemLink.text`,
-        },
-        prepare: ({ title }: any) => ({
-            title,
-            media: MdAddLink
-        }),
+      select: {
+        title: 'itemLink.reference.title',
+        name: 'itemLink.reference.name',
+      },
+      prepare({ title, name }) {
+        return {
+          title: title || name || 'No Title',
+          media: MdAddLink
+        };
+      }
     }
 }

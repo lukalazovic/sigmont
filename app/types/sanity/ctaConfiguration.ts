@@ -16,9 +16,9 @@ export default {
             type: 'reference',
             to: [
                 { type: 'landing', title: 'Landing Page' },
-                { type: 'article', title: 'Article Page' },
+                { type: 'service', title: 'Service Page' },
             ],
-            description: 'Select the target page or document that the CTA button will direct users to. This could be a specific landing page or an article page within the site.',
+            description: 'Select the target page or document that the CTA button will direct users to. This could be a specific landing page or an service page within the site.',
         },
     ],
 };

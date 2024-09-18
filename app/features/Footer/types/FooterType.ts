@@ -10,9 +10,18 @@ export interface ICTALinkProps {
     externalLink?: string;
 }
 
+export interface IInternalLinkProps {
+    slug: string;
+    pageType: string;
+    label: string;
+}
+
 export interface IItemLinkProps {
-    heading?: string;
-    itemLink: ICTALinkProps;
+    reference?: any;
+    itemLink: {
+        reference: IInternalLinkProps;
+    }
+    linkCollections?: IItemLinkProps[];
 }
 
 export interface IFooterProps {

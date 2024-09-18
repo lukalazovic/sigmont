@@ -5,35 +5,24 @@ import { IItemLinkProps } from '../../types/HeaderType';
 import { SvgArrowDownIcon } from '../../icons/SvgArrowDownIcon';
 
 export const MenuItemDesktop = ({
-    linkCollections,
-    itemLink: { label, internalLink, externalLink }
+    itemLink,
+    linkCollections
 }: IItemLinkProps) => {
     const hasSubmenu = linkCollections && linkCollections.length > 0;
 
     const renderLink = (
+        label: string,
         href: string,
-        isExternal = false
     ) => (
         <Link
             href={href}
+            target={'_self'}
             aria-label={label}
             className='menu-link'
-            target={isExternal ? '_blank' : '_self'}
-            rel={isExternal ? 'noopener noreferrer' : undefined}
         >
             {label}
             {hasSubmenu && <SvgArrowDownIcon aria-hidden="true" />}
         </Link>
-    );
-
-    const renderSpan = () => (
-        <span
-            aria-label={label}
-            className={'menu-item-label'}
-        >
-            {label}
-            {hasSubmenu && <SvgArrowDownIcon aria-hidden="true" />}
-        </span>
     );
 
     return (
@@ -41,14 +30,12 @@ export const MenuItemDesktop = ({
             role='none'
             className={classNames('menu-item', { 'has-submenu': hasSubmenu })}
         >
-            {internalLink && renderLink(`/${internalLink.pageType}/${internalLink.slug}`)}
-            {!internalLink && externalLink && renderLink(externalLink, true)}
-            {!internalLink && !externalLink && renderSpan()}
+            {itemLink && renderLink(itemLink.reference.label,`/${itemLink.reference.pageType}/${itemLink.reference.slug}`)}
             {hasSubmenu && (
                 <ul
                     role='menu'
                     className='submenu'
-                    aria-label={`${label} submenu`}
+                    aria-label={`${itemLink.reference.label} submenu`}
                 >
                     {linkCollections?.map((item, idx) => (
                         <MenuItemDesktop

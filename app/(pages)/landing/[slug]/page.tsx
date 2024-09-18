@@ -13,7 +13,6 @@ export default async function Landing({ params }: ILandingProps) {
     
     const data = await client.fetch(landingPageQuery())
 
-    console.log(data)
     return (
         <main>
             <div className="container mt-5">

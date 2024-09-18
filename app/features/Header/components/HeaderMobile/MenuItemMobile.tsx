@@ -8,10 +8,10 @@ import { SvgArrowDownIcon } from '../../icons/SvgArrowDownIcon';
 
 export const MenuItemMobile = ({
     active,
+    itemLink,
     setActive,
     onLinkClick,
     linkCollections,
-    itemLink: { label, internalLink, externalLink }
 }: IMenuItemMobileProps) => {
     const [isSubmenuActive, setIsSubmenuActive] = useState(false);
 
@@ -26,14 +26,14 @@ export const MenuItemMobile = ({
     };
 
     const renderLink = (
+        label: string,
         href: string,
-        isExternal = false
     ) => (
         <Link
             href={href}
+            target={'_self'}
             aria-label={label}
             onClick={handleLinkClick}
-            target={isExternal ? '_blank' : '_self'}
             className={classNames({ 'active': isSubmenuActive })}
         >
             {label}
@@ -46,8 +46,8 @@ export const MenuItemMobile = ({
             onClick={handleSubmenuToggle}
             aria-expanded={isSubmenuActive}
             className={classNames({ 'active': isSubmenuActive })}
-            aria-controls={`submenu-${label?.replace(/\s+/g, '-').toLowerCase()}`}
-            aria-label={isSubmenuActive ? `Collapse ${label} submenu` : `Expand ${label} submenu`}
+            aria-controls={`submenu-${itemLink.reference.label?.replace(/\s+/g, '-').toLowerCase()}`}
+            aria-label={isSubmenuActive ? `Collapse ${itemLink.reference.label} submenu` : `Expand ${itemLink.reference.label} submenu`}
         >
             <SvgArrowDownIcon aria-hidden="true" />
         </button>
@@ -60,23 +60,14 @@ export const MenuItemMobile = ({
             aria-expanded={linkCollections ? isSubmenuActive : undefined}
             className={classNames('menu-item', { 'menu-item-submenu': linkCollections })}
         >
-            {internalLink && renderLink(`/${internalLink.pageType}/${internalLink.slug}`)}
-            {!internalLink && externalLink && renderLink(externalLink, true)}
-            {!internalLink && !externalLink && (
-                <span
-                    aria-label={label}
-                    className={classNames({ 'active': isSubmenuActive })}
-                >
-                    {label}
-                </span>
-            )}
+            {itemLink && renderLink(itemLink.reference.label, `/${itemLink.reference.pageType}/${itemLink.reference.slug}`)}
             {linkCollections && renderButton()}
             {linkCollections && isSubmenuActive && active && (
                 <ul
                     role="group"
                     className="submenu"
-                    id={`submenu-${label?.replace(/\s+/g, '-').toLowerCase()}`}
-                    aria-labelledby={`submenu-${label?.replace(/\s+/g, '-').toLowerCase()}`}
+                    id={`submenu-${itemLink.reference.label?.replace(/\s+/g, '-').toLowerCase()}`}
+                    aria-labelledby={`submenu-${itemLink.reference.label?.replace(/\s+/g, '-').toLowerCase()}`}
                 >
                     {linkCollections?.map(({ itemLink, linkCollections }, idx) => (
                         <MenuItemMobile

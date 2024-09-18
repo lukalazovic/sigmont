@@ -8,14 +8,33 @@ export default {
             title: 'Header TopBar Settings',
             options: { collapsible: true, collapsed: true }
         },
+        {
+            name: 'headerMobile',
+            title: 'Header Mobile Settings',
+            options: { collapsible: true, collapsed: true }
+        },
     ],
     fields: [
         {
             name: 'mainNavigation',
             title: 'Main Menu',
-            type: 'reference',
-            to: { type: 'desktopNavigation' },
-            description: 'Select the main navigation menu to be used in the header. This defines the primary menu items displayed on the site.'
+            type: 'array',
+            of: [{ type: 'navigationItem'}],
+            description: 'This defines the primary menu items displayed on the site.'
+        },
+        {
+            name: 'showPhone',
+            title: 'Show Phone Number',
+            type: 'boolean',
+            description: 'Enable to display the phone number at the top of the header navigation.',
+            fieldset: 'headerTopBar'
+        },
+        {
+            name: 'ctaLink',
+            type: 'callToAction',
+            title: 'CTA Link',
+            description: 'Add a link for quick navigation to a page.',
+            fieldset: 'headerTopBar'
         },
         {
             name: 'menuSlideDirection',
@@ -28,7 +47,8 @@ export default {
                 ],
                 layout: 'dropdown',
             },
-            description: 'Choose the direction from which the mobile menu will slide in. This affects the animation and positioning of the menu.'
+            description: 'Choose the direction from which the mobile menu will slide in. This affects the animation and positioning of the menu.',
+            fieldset: 'headerMobile'
         },
         {
             name: 'mobileHeaderPosition',
@@ -43,43 +63,7 @@ export default {
                 default: 'top'
             },
             description: 'Choose the position of the mobile header bar. Default is top.',
-        },
-        {
-            name: 'showPhone',
-            title: 'Show Phone Number',
-            type: 'boolean',
-            description: 'Enable to display the phone number at the top of the header navigation.',
-            fieldset: 'headerTopBar'
-        },
-        {
-            name: 'ctaType',
-            title: 'CTA Type',
-            type: 'string',
-            options: {
-                list: [
-                    { title: 'CTA Button', value: 'button' },
-                    { title: 'CTA Link', value: 'link' }
-                ],
-                layout: 'dropdown'
-            },
-            description: 'Choose whether to use a CTA button or a CTA link.',
-            fieldset: 'headerTopBar'
-        },
-        {
-            name: 'ctaButtonLabel',
-            title: 'CTA Button Label',
-            type: 'string',
-            description: 'Customize the label for the call to action button. This will be displayed on the button at the top of the header.',
-            hidden: ({ parent }: { parent: {ctaType: string} }) => parent?.ctaType !== 'button',
-            fieldset: 'headerTopBar'
-        },
-        {
-            name: 'ctaLink',
-            type: 'callToAction',
-            title: 'CTA Link',
-            description: 'Add a link for quick navigation to a page if you prefer not to use the CTA button for opening a modal.',
-            hidden: ({ parent }: { parent: {ctaType: string} }) => parent?.ctaType !== 'link',
-            fieldset: 'headerTopBar'
-        },
+            fieldset: 'headerMobile'
+        }
     ]
 };

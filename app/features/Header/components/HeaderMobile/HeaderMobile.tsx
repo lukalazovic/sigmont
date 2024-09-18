@@ -11,11 +11,9 @@ import { IHeaderMobileProps } from '../../types/HeaderType';
 export const HeaderMobile = ({
     active,
     logoUrl,
-    ctaType,
     ctaLink,
     setActive,
     phoneNumber,
-    ctaBtnLabel,
     onLinkClick,
     navigationItems,
     showPhoneNumber,
@@ -82,6 +80,27 @@ export const HeaderMobile = ({
                         className={classNames('drawer', `drawer-${mobileMenuSlideIn}`, { 'active': active })}
                     >
                         <ul className='navigation'>
+
+                            <li role='menuitem' aria-haspopup={false} className={'menu-item'}>
+                                <Link
+                                    href={'/'}
+                                    target={'_self'}
+                                    aria-label='Početna'
+                                    onClick={handleLinkClick}
+                                >
+                                    Početna
+                                </Link>
+                            </li>
+                            <li role='menuitem' aria-haspopup={false} className={'menu-item'}>
+                                <Link
+                                    href={'/usluge'}
+                                    target={'_self'}
+                                    aria-label='Usluge'
+                                    onClick={handleLinkClick}
+                                >
+                                    Usluge
+                                </Link>
+                            </li>
                             {delayedActive && navigationItems?.map(({ itemLink, linkCollections }, idx) => (
                                 <MenuItemMobile
                                     key={idx}
@@ -92,8 +111,18 @@ export const HeaderMobile = ({
                                     linkCollections={linkCollections}
                                 />
                             ))}
+                            <li role='menuitem' aria-haspopup={false} className={'menu-item'}>
+                                <Link
+                                    href={'/kontakt'}
+                                    target={'_self'}
+                                    aria-label='Kontakt'
+                                    onClick={handleLinkClick}
+                                >
+                                    Kontakt
+                                </Link>
+                            </li>
                         </ul>
-                        {(showPhoneNumber || ctaType) &&
+                        {(showPhoneNumber || ctaLink) &&
                             <div className='cta-wrapper'>
                                 {showPhoneNumber && (
                                     <Link
@@ -106,15 +135,7 @@ export const HeaderMobile = ({
                                         {phoneNumber}
                                     </Link>
                                 )}
-                                {ctaType === 'button' && (
-                                    <button
-                                        aria-label={ctaBtnLabel}
-                                        className='btn btn-primary'
-                                    >
-                                        {ctaBtnLabel}
-                                    </button>
-                                )}
-                                {ctaType === 'link' && ctaLink && (
+                                {ctaLink && (
                                     <Link
                                         onClick={handleLinkClick}
                                         aria-label={ctaLink.label}

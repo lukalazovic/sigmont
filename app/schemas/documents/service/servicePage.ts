@@ -3,8 +3,8 @@ import * as blocks from '../../blocks/index';
 import { validateSeoInfo } from '@/app/utils/validation';
 
 export default {
-    name: 'article',
-    title: 'Article Page',
+    name: 'service',
+    title: 'Service Page',
     type: 'document',
     icon: MdPages,
     groups: [
