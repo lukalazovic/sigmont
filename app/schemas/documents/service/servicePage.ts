@@ -1,6 +1,6 @@
 import { MdPages } from 'react-icons/md'
 import * as blocks from '../../blocks/index';
-import { validateSeoInfo } from '@/app/utils/validation';
+import { validateSeoInfo } from '@/app/shared/utils/validation';
 
 export default {
     name: 'service',

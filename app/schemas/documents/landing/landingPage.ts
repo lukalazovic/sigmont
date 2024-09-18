@@ -1,57 +1,57 @@
 import { MdPages } from 'react-icons/md';
 import * as blocks from '../../blocks/index';
-import { validateSeoInfo } from '@/app/utils/validation';
+import { validateSeoInfo } from '@/app/shared/utils/validation';
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
     name: 'landing',
-    title: 'Landing Page',
+    title: 'Landing Stranica',
     type: 'document',
     icon: MdPages,
     groups: [
-        { name: 'content', title: 'Content', default: true },
-        { name: 'settings', title: 'Settings' },
-        { name: 'seo', title: 'SEO' }
+        { name: 'content', title: 'Sadržaj', default: true },
+        { name: 'seo', title: 'SEO Optimizacija' }
+    ],
+    fieldsets: [
+        {
+            name: 'heroImageSettings',
+            title: 'Glavna sekcija',
+            options: { collapsible: true, collapsed: true }
+        }
     ],
     fields: [
         {
             name: 'name',
-            title: 'Name',
+            title: 'Naziv',
             type: 'string',
-            description: 'Optional: Provide a name for internal reference.',
+            description: 'Opcionalno: Unesite naziv za internu referencu.',
             group: 'content',
         },
         {
             name: 'heroImage',
-            title: 'Hero Image',
+            title: 'Glavna slika',
             type: 'heroImage',
-            description: 'Image displayed prominently at the top of the page.',
             group: 'content',
+            fieldset: 'heroImageSettings',
+            description: 'Slika prikazana na vrhu stranice kao glavni vizuelni element.'
         },
         {
             name: 'content',
-            title: 'Content Area',
+            title: 'Sadržaj stranice',
             type: 'array',
             of: [
                 ...Object.values(blocks),
             ],
-            description: 'Main content blocks for the landing page.',
+            description: 'Ovde dodajte predefinsane blokove kako bi kreirali sadržaj za stranicu.',
             group: 'content',
         },
         {
             name: 'seoInformation',
-            title: 'SEO Information',
+            title: 'SEO Informacije',
             type: 'seoInformation',
-            description: 'SEO settings for improving search engine visibility.',
+            description: 'SEO postavke za poboljšanje vidljivosti na pretraživačima.',
             validation: (Rule: any) => Rule.custom((seoInformation: any, context: any) => validateSeoInfo(seoInformation, context)),
             group: 'seo',
-        },
-        {
-            name: 'fullHeight',
-            title: 'Hero Image Full Height',
-            type: 'boolean',
-            description: 'Toggle to adjust hero image to full height of the viewport.',
-            default: true,
-            group: 'settings',
         },
     ],
 };

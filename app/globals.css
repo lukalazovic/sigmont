@@ -1,8 +1,9 @@
-@import './features/Header/Header.css';
-@import './features/Footer/Footer.css';
-@import './features/Address/Address.css';
-@import './features/HeroImage/HeroImage.css';
-@import './features/SocialNetworks/SocialNetworks.css';
+@import './features/web/Header/Header.css';
+@import './features/web/Footer/Footer.css';
+@import './features/web/Address/Address.css';
+@import './features/web/HeroImage/HeroImage.css';
+@import './features/web/TextAndImage/TextAndImage.css';
+@import './features/web/SocialNetworks/SocialNetworks.css';
 
 *,
 *::before,

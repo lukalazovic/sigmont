@@ -3,9 +3,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../globals.css";
-import { Footer } from "../features/Footer/Footer";
-import { Header } from "../features/Header/Header";
-import { siteSettingsPageQuery } from "../groq/siteSettings/siteSettings";
+import { Header, Footer } from "../features";
+import { siteSettingsPageQuery } from "../groq/documents/siteSettings/siteSettings";
 import client from "../client";
 
 const inter = Inter({ subsets: ["latin"] });
