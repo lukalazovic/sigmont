@@ -1,40 +1,40 @@
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
-    title: 'Text and image block',
+    title: 'Tekst i Slika',
     name: 'textAndImageBlock',
     type: 'object',
     fields: [
         {
             name: 'title',
-            title: 'Descriptive title',
-            description: 'Block title',
+            title: 'Naslov',
+            description: 'Unesite kratak i informativan naslov za ovaj blok sadržaja.',
             type: 'string',
         },
         {
             name: 'text',
-            title: 'Text',
-            description: 'Enter gallery block descriptive text',
+            title: 'Tekst',
+            description: 'Unesite opisni tekst za blok sa slikom i tekstom.',
             type: 'text',
         },
         {
             name: 'image',
             type: 'image',
-            title: 'Image',
-            description: 'slika.',
+            title: 'Slika',
+            description: 'Odaberite sliku za prikaz u ovom bloku.',
         },
         {
             name: 'imagePosition',
-            title: 'image Position',
+            title: 'Pozicija Slike',
             type: 'string',
             options: {
                 list: [
-                    { title: 'Left', value: 'left' },
-                    { title: 'Right', value: 'right' }
+                    { title: 'Levo', value: 'left' },
+                    { title: 'Desno', value: 'right' }
                 ],
                 layout: 'dropdown',
                 default: 'Left'
             },
-            description: 'Choose the position of the image. Default is left.',
+            description: 'Odaberite poziciju slike unutar bloka. Ako ne izaberete pozicija je slike će biti levo.',
         }
     ]
 };
