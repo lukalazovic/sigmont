@@ -9,7 +9,6 @@ export const HeroImage = ({
     subHeading,
     isFullHeight,
 }: IHeroImageProps) => {
-
     const heroImageClassName = classNames(
         className,
         'hero-image',

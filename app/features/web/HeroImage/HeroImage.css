@@ -1,6 +1,7 @@
 .hero-image {
     position: relative;
     height: calc(100vh - 77px);
+    margin-bottom: 50px;
 
     &:after {
         top: 0;

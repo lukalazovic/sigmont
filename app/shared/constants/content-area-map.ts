@@ -1,4 +1,4 @@
-import { AccordionBlock, PortableTextContent, TextAndImage } from "../../features";
+import { AccordionBlock, PortableTextContent, TextAndImage } from "@/app/features";
 
 export const contentAreaMap = {
     accordionBlock: AccordionBlock,

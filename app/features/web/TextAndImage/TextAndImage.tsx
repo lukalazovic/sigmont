@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { urlFor } from '@/app/shared/utils/imageBuilder';
+import Image from 'next/image';
 import { ITextAndImageProps } from './types/textAndImageType';
 
 export const TextAndImage = ({
@@ -8,17 +8,26 @@ export const TextAndImage = ({
     imageSrc,
     imagePosition = 'left'
 }: ITextAndImageProps) => {
-
+    const rowClass = classNames('row d-flex align-items-center', {
+        'flex-row-reverse': imagePosition === 'right'
+    });
     return (
-        <div className="container">
-            <div className="row d-flex align-items-center">
+        <div className="container text-and-image-wrapper mb-5">
+            <div className={rowClass}>
                 <div className="col-md-6">
-                    <div className="image-holder">
-                        {/* <img src="images/blog5.jpg" alt="about-us" className="img-fluid"> */}
+                    <div className="image-holder border">
+                        <Image
+                            width={636}
+                            height={477}
+                            src={imageSrc}
+                            loading='lazy'
+                            className='img-fluid'
+                            alt={`Image for "${title}" block.`}
+                        />
                     </div>
                 </div>
                 <div className="col-md-6">
-                    <div className="section-element p-5">
+                    <div className="section-element">
                         <h2 className="element-title text-uppercase mb-4">{title}</h2>
                         <p>{text}</p>
                     </div>
