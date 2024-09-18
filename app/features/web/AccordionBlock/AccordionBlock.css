@@ -1,0 +1,45 @@
+.accordions-wrapper {
+    margin: 0 auto;
+    padding: 50px;
+    border-radius: 5px;
+    background-color: #a7a9ac36;
+
+    .accordion-item {
+        padding: 0;
+        overflow: hidden;
+        background: #fff;
+        border-radius: 5px;
+        margin: 0 auto 10px;
+
+        h2.accordion-header {
+            border: none;
+        }
+
+        h2 button {
+            line-height: 1;
+            padding: 20px 20px 15px;
+
+            &::after {
+                content: '+';
+                font-size: 30px;
+                transition: .2s all ease-in-out;
+            }
+
+            &[aria-expanded='true']::after {
+                transform: rotate(45deg);
+            }
+        }
+    }
+
+    .accordion-collapse {
+        > div {
+            font-size: 16px;
+            padding: 10px 20px;
+            border-top: 1px solid #a7a9ac36;
+        }
+    }
+
+    @media (max-width: 575px) {
+        padding: 20px;
+    }
+}

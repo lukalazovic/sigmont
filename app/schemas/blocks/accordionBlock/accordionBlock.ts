@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
     name: 'accordionBlock',
     title: 'Accordion block',
@@ -14,14 +15,17 @@ export default {
             group: 'content',
         },
         {
+            name: 'mainIntro',
+            title: 'Main Intro',
+            description: 'Main intro of accordion block',
+            type: 'text',
+            group: 'content',
+        },
+        {
             name: 'items',
             title: 'Accordions',
             type: 'array',
-            of: [
-                {
-                    type: 'accordion'
-                }
-            ],
+            of: [{ type: 'accordion' }],
             group: 'content',
         }
     ]
