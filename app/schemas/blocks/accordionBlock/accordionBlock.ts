@@ -1,32 +1,26 @@
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
     name: 'accordionBlock',
-    title: 'Accordion block',
+    title: 'Blok sa pitanjima',
     type: 'object',
-    groups: [
-        { name: 'content', title: 'Content', default: true},
-    ],
     fields: [
         {
             name: 'title',
-            title: 'Heading',
-            description: 'Heading of accordion block',
+            title: 'Naslov',
+            description: 'Glavni naslov bloka koji će biti prikazan korisnicima na vrhu, često se koristi za opisivanje teme ili sekcije pitanja.',
             type: 'string',
-            group: 'content',
         },
         {
             name: 'mainIntro',
-            title: 'Main Intro',
-            description: 'Main intro of accordion block',
+            title: 'Glavni uvod',
+            description: 'Uvodni tekst koji daje kratko objašnjenje ili pregled sadržaja u ovom bloku pitanja. Ovo može biti koristan kontekst za korisnike pre nego što otvore pitanja.',
             type: 'text',
-            group: 'content',
         },
         {
             name: 'items',
-            title: 'Accordions',
+            title: 'Pitanja i odgovori',
             type: 'array',
             of: [{ type: 'accordion' }],
-            group: 'content',
         }
     ]
 

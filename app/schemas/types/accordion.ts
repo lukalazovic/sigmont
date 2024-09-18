@@ -1,19 +1,19 @@
 export default {
     name: 'accordion',
-    title: 'Accordion',
+    title: 'Pitanje i odgovor',
     type: 'object',
     fields: [
         {
             name: 'title',
-            title: 'Title',
+            title: 'Pitanje',
             type: 'string',
-            description: 'Title of the accordion item.',
+            description: 'Tekst pitanja koje korisnik može da otvori klikom. Ovo je pitanje koje pruža dodatne informacije nakon otvaranja.',
         },
         {
             name: 'content',
-            title: 'Content',
+            title: 'Odgovor',
             type: 'text',
-            description: 'Content displayed when the accordion item is expanded.',
+            description: 'Tekstualni odgovor koji se prikazuje kada korisnik otvori pitanje. Ovde možete pružiti detaljnije informacije ili objašnjenja.',
         },
     ],
 };
