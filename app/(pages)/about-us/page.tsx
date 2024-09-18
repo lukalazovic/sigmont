@@ -1,21 +1,27 @@
+//TODO: This is also landing type but hardcoded
+
 import client from "@/app/client";
-import { ContentAreaContainer } from "@/app/features/web/ContentAreaContainer/ContentAreaContainer";
-import { landingPageQuery } from "@/app/groq/documents/landing/landingPage";
-import { PageProps } from "@/app/shared/types/PageProps";
+import { PageProps } from "@/app/shared";
+import { landingPageQuery } from "@/app/groq";
+import { ContentAreaContainer, HeroImage } from "@/app/features";
 
 interface ILandingProps {
     params: PageProps;
 }
+
 export default async function Landing({ params }: ILandingProps) {
     const { slug } = params;
-    
-    const {data, heroImage = data?.heroImage} = await client.fetch(landingPageQuery(slug))
+
+    const data = await client.fetch(landingPageQuery(slug));
+
+    const { blocks, heroImage } = data;
+
+    if (!data) return null;
+
     return (
         <main>
-            <div className="container mt-5">
-                <h1>{slug}</h1>
-                <ContentAreaContainer items={data} />
-            </div>
+            <HeroImage {...heroImage} />
+            <ContentAreaContainer items={blocks} />
         </main>
     )
 }

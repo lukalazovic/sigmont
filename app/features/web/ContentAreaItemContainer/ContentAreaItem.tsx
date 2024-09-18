@@ -31,11 +31,11 @@ export function ContentAreaItem({
         return null;
     }
 
-            return (
-                <div>
-                    <Component
-                        {...item}
-                    />
-                </div>
-            );
+    return (
+        <div>
+            <Component
+                {...item}
+            />
+        </div>
+    );
 }

@@ -5,7 +5,7 @@ import { validateSeoInfo } from '@/app/shared/utils/validation';
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
     name: 'landing',
-    title: 'Landing Stranica',
+    title: 'Obična Stranica',
     type: 'document',
     icon: MdPages,
     groups: [

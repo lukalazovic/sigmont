@@ -1,3 +1,5 @@
+//TODO: This is also landing type but hardcoded
+
 import { unstable_noStore as noStore } from 'next/cache';
 import client from "@/app/client";
 import { ContactInfo } from "@/app/features/web/Contact/components/ContactInfo/ContactInfo";
@@ -16,18 +18,11 @@ export default async function Contact() {
             showSocialLinks,
         },
         globalSettings: { socialNetworks },
-        siteHeaderSettings: {
-            ctaType,
-            showPhone,
-        }
     } = await client.fetch(siteSettingsPageQuery());
 
     return (
         <main>
-            <HeroImage
-                isFullHeader={ctaType || showPhone}
-                {...heroImage}
-            />
+            <HeroImage {...heroImage} />
             <ContactInfo
                 heading={heading}
                 addresses={contacts}

@@ -1,10 +1,10 @@
 import React from 'react';
 import Link from "next/link";
-import { IAddressType } from "./types/address";
-import { SvgLocationPinIcon } from './icons/SvgLocationPinIcon';
-import { SvgPhoneIcon } from '../Header/icons/SvgPhoneIcon';
-import { SvgEnvelopeIcon } from './icons/SvgEnvelopeIcon';
 import classNames from 'classnames';
+import { IAddressType } from "./types/address";
+import { SvgEnvelopeIcon } from './icons/SvgEnvelopeIcon';
+import { SvgPhoneIcon } from '../Header/icons/SvgPhoneIcon';
+import { SvgLocationPinIcon } from './icons/SvgLocationPinIcon';
 
 export const Address = ({
     title,
