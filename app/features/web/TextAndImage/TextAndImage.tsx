@@ -1,13 +1,18 @@
 import classNames from 'classnames';
 import Image from 'next/image';
 import { ITextAndImageProps } from './types/textAndImageType';
+import imageUrlBuilder from '@sanity/image-url';
+import client from '@/app/client';
 
 export const TextAndImage = ({
     text,
     title,
-    imageSrc,
+    image,
     imagePosition = 'left'
 }: ITextAndImageProps) => {
+    const builder = imageUrlBuilder(client);
+    const imageSrc = builder.image(image).url();
+
     const rowClass = classNames('row d-flex align-items-center', {
         'flex-row-reverse': imagePosition === 'right'
     });

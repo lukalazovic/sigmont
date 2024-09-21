@@ -1,7 +1,7 @@
 export interface ITextAndImageProps {
     text: string;
     title: string;
-    imageSrc: string;
+    image: any;
     className?: string;
     imagePosition?: 'left' | 'right';
 }
