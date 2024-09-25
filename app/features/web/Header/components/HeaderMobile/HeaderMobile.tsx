@@ -93,7 +93,7 @@ export const HeaderMobile = ({
                             </li>
                             <li role='menuitem' aria-haspopup={false} className={'menu-item'}>
                                 <Link
-                                    href={'/services'}
+                                    href={'/service'}
                                     target={'_self'}
                                     aria-label='Usluge'
                                     onClick={handleLinkClick}
@@ -114,7 +114,7 @@ export const HeaderMobile = ({
 
                             <li role='menuitem' aria-haspopup={false} className={'menu-item'}>
                                 <Link
-                                    href={'/landing/about-us'}
+                                    href={'/about-us'}
                                     target={'_self'}
                                     aria-label='O nama'
                                     onClick={handleLinkClick}
@@ -122,7 +122,7 @@ export const HeaderMobile = ({
                                     O nama
                                 </Link>
                             </li>
-                            {/* <li role='menuitem' aria-haspopup={false} className={'menu-item'}>
+                            <li role='menuitem' aria-haspopup={false} className={'menu-item'}>
                                 <Link
                                     href={'/contact'}
                                     target={'_self'}
@@ -131,7 +131,7 @@ export const HeaderMobile = ({
                                 >
                                     Kontakt
                                 </Link>
-                            </li> */}
+                            </li>
                         </ul>
                         {(showPhoneNumber || ctaLink) &&
                             <div className='cta-wrapper'>

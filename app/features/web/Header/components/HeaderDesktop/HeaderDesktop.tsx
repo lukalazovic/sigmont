@@ -57,7 +57,7 @@ export const HeaderDesktop = ({
                         <Link href={'/'} target={'_self'} aria-label={'Početna'} className='menu-link'>Početna</Link>
                     </li>
                     <li role='none' className={'menu-item'}>
-                        <Link href={'/services'} target={'_self'} aria-label={'Usluge'} className='menu-link'>Usluge</Link>
+                        <Link href={'/service'} target={'_self'} aria-label={'Usluge'} className='menu-link'>Usluge</Link>
                     </li>
                     {navigationItems?.map((item, idx) => (
                         <MenuItemDesktop
@@ -67,11 +67,11 @@ export const HeaderDesktop = ({
                         />
                     ))}
                     <li role='none' className={'menu-item'}>
-                        <Link href={'/landing/about-us'} target={'_self'} aria-label={'O nama'} className='menu-link'>O nama</Link>
+                        <Link href={'/about-us'} target={'_self'} aria-label={'O nama'} className='menu-link'>O nama</Link>
                     </li>
-                    {/* <li role='none' className={'menu-item'}>
+                    <li role='none' className={'menu-item'}>
                         <Link href={'/contact'} target={'_self'} aria-label={'Kontakt'} className='menu-link'>Kontakt</Link>
-                    </li> */}
+                    </li>
                 </ul>
             </div>
         </header>
