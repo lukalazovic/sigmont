@@ -1,29 +1,29 @@
 export default {
     name: 'callToAction',
-    title: 'Call to Action',
+    title: 'Call to Action - Poziv na Akciju',
     type: 'object',
     fields: [
         {
-            title: 'Label',
+            title: 'Text',
             name: 'label',
             type: 'string',
-            description: 'Text displayed for the call to action.',
+            description: 'Tekst koji se prikazuje za poziv na akciju.',
         },
         {
             name: 'internalLink',
-            title: 'Internal Link',
+            title: 'Interni link',
             type: 'reference',
-            description: 'Select the internal page or document to link to.',
+            description: 'Izaberite internu stranicu za povezivanje.',
             to: [
-                { type: 'landing', title: 'Landing Page' },
-                { type: 'service', title: 'Service Page' },
+                { type: 'landing', title: 'Obična stranica' },
+                { type: 'service', title: 'Stranica usluga' },
             ],
         },
         {
             name: 'externalLink',
-            title: 'External Link',
+            title: 'Eksterni link',
             type: 'url',
-            description: 'Enter the URL for the external link.',
+            description: 'Unesite URL za eksterni link.',
         }
     ]
 };

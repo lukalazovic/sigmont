@@ -1,4 +1,4 @@
-import { SvgProps } from "@/app/shared/types/SvgProps";
+import { SvgProps } from "@/app/shared";
 
 export function SvgTiktokIcon({ className }: SvgProps) {
     return (

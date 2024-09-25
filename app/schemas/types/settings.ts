@@ -6,42 +6,42 @@ export default {
     type: 'document',
     icon: MdSettings,
     groups: [
-        { name: 'globalSettings', title: 'Global settings', default: true },
-        { name: 'seoSettings', title: 'SEO Settings' },
-        { name: 'siteHeader', title: 'Header settings' },
-        { name: 'siteFooter', title: 'Footer settings' },
-        { name: 'contactPage', title: 'Contact Page settings' },
+        { name: 'globalSettings', title: 'Glavna podešavanja', default: true },
+        { name: 'seoSettings', title: 'SEO podešavanja' },
+        { name: 'siteHeader', title: 'Header podešavanja' },
+        { name: 'siteFooter', title: 'Footer podešavanja' },
+        // { name: 'contactPage', title: 'Contact Page settings' },
     ],
     fields: [
         {
             name: 'globalSettings',
-            title: 'Global settings',
+            title: 'Glavna podešavanja',
             type: 'globalSettings',
             group: 'globalSettings',
         },
         {
             name: 'seoSettings',
-            title: 'SEO Settings',
+            title: 'SEO podešavanja',
             type: 'seoSettings',
             group: 'seoSettings',
         },
         {
             name: 'siteHeaderSettings',
-            title: 'Header settings',
+            title: 'Header podešavanja',
             type: 'siteHeader',
             group: 'siteHeader',
         },
         {
             name: 'siteFooterSettings',
-            title: 'Footer settings',
+            title: 'Footer podešavanja',
             type: 'siteFooter',
             group: 'siteFooter',
         },
-        {
-            name: 'contactPageSettings',
-            title: 'Contact Page settings',
-            type: 'contactPageSettings',
-            group: 'contactPage',
-        }
+        // {
+        //     name: 'contactPageSettings',
+        //     title: 'Contact Page settings',
+        //     type: 'contactPageSettings',
+        //     group: 'contactPage',
+        // }
     ]
 }

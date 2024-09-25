@@ -1,68 +1,68 @@
 export default {
     name: 'siteHeader',
-    title: 'Site Header',
+    title: ' ',
     type: 'object',
     fieldsets: [
         {
             name: 'headerTopBar',
-            title: 'Header TopBar Settings',
+            title: 'Podešavanje dela iznad header-a',
             options: { collapsible: true, collapsed: true }
         },
         {
             name: 'headerMobile',
-            title: 'Header Mobile Settings',
+            title: 'Podešavanje mobilnog header-a',
             options: { collapsible: true, collapsed: true }
         },
     ],
     fields: [
         {
             name: 'mainNavigation',
-            title: 'Main Menu',
+            title: 'Glavni Meni',
             type: 'array',
             of: [{ type: 'navigationItem'}],
-            description: 'This defines the primary menu items displayed on the site.'
+            description: 'Definišite meni prikazanog na vrhu sajta. Ovi linkovi će se nalaziti u sredini glavnog menija'
         },
         {
             name: 'showPhone',
-            title: 'Show Phone Number',
+            title: 'Prikaz telefonskog broja',
             type: 'boolean',
-            description: 'Enable to display the phone number at the top of the header navigation.',
+            description: 'Omogućite prikaz telefonskog broja na vrhu navigacije.',
             fieldset: 'headerTopBar'
         },
         {
             name: 'ctaLink',
             type: 'callToAction',
             title: 'CTA Link',
-            description: 'Add a link for quick navigation to a page.',
+            description: 'Dodajte link za brzu navigaciju na stranicu.',
             fieldset: 'headerTopBar'
         },
         {
             name: 'menuSlideDirection',
-            title: 'Menu Slide Direction',
+            title: 'Smer ulaska menija',
             type: 'string',
             options: {
                 list: [
-                    { title: 'Slide in from Left', value: 'left' },
-                    { title: 'Slide in from Right', value: 'right' }
+                    { title: 'Ulaz s leve strane', value: 'left' },
+                    { title: 'Ulaz s desne strane', value: 'right' }
                 ],
                 layout: 'dropdown',
             },
-            description: 'Choose the direction from which the mobile menu will slide in. This affects the animation and positioning of the menu.',
+            description: 'Izaberite smer sa kojeg će mobilni meni da ulazi u vidno polje. Ovo utiče na animaciju i poziciju menija.',
             fieldset: 'headerMobile'
         },
         {
             name: 'mobileHeaderPosition',
-            title: 'Mobile Header Position',
+            title: 'Pozicija mobilnog menija',
             type: 'string',
             options: {
                 list: [
-                    { title: 'Top', value: 'top' },
-                    { title: 'Bottom', value: 'bottom' }
+                    { title: 'Vrh', value: 'top' },
+                    { title: 'Dno', value: 'bottom' }
                 ],
                 layout: 'dropdown',
                 default: 'top'
             },
-            description: 'Choose the position of the mobile header bar. Default is top.',
+            description: 'Izaberite poziciju mobilnog menija. Po sistemskim podešavanjima je na vrhu.',
             fieldset: 'headerMobile'
         }
     ]

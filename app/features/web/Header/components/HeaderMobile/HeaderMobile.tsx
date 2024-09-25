@@ -122,7 +122,7 @@ export const HeaderMobile = ({
                                     O nama
                                 </Link>
                             </li>
-                            <li role='menuitem' aria-haspopup={false} className={'menu-item'}>
+                            {/* <li role='menuitem' aria-haspopup={false} className={'menu-item'}>
                                 <Link
                                     href={'/contact'}
                                     target={'_self'}
@@ -131,7 +131,7 @@ export const HeaderMobile = ({
                                 >
                                     Kontakt
                                 </Link>
-                            </li>
+                            </li> */}
                         </ul>
                         {(showPhoneNumber || ctaLink) &&
                             <div className='cta-wrapper'>

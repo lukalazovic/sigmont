@@ -1,41 +1,41 @@
 export default {
     name: 'seoSettings',
-    title: 'SEO Settings',
+    title: 'SEO Podešavanja',
     type: 'object',
     fields: [
         {
             name: 'title',
-            title: 'Site name title',
+            title: 'Naziv sajta',
             type: 'string',
-            description: 'Place here Your Site name title.',
+            description: 'Unesite naziv vašeg sajta.',
         },
         {
             name: 'description',
-            title: 'Meta Description',
+            title: 'Meta opis',
             type: 'text',
-            description: 'A brief description of the site for search engines and social media.',
+            description: 'Kratak opis sajta za pretraživače i društvene mreže.',
         },
         {
             name: 'keywords',
-            title: 'Meta Keywords',
+            title: 'Meta ključne reči',
             type: 'array',
             of: [{ type: 'string' }],
-            description: 'Comma-separated list of keywords relevant to the site.',
+            description: 'Lista ključnih reči relevantnih za sajt, odvojenih zarezima.',
         },
         {
             name: 'favicon',
             title: 'Favicon',
             type: 'image',
-            description: 'A small icon that represents the site, usually displayed in the browser tab.',
+            description: 'Mala ikona koja predstavlja sajt, obično prikazana u kartici (tab-u) pretraživača.',
             options: {
                 hotspot: true,
             },
         },
         {
             name: 'ogImage',
-            title: 'Open Graph Image',
+            title: 'Open Graph slika',
             type: 'image',
-            description: 'Image used when the site is shared on social media platforms.',
+            description: 'Slika koja se koristi kada se sajt deli na društvenim mrežama.',
             options: {
                 hotspot: true,
             },

@@ -1,6 +1,5 @@
 export { default as accordion } from './accordion';
 export { default as seoInformation } from './seoInformation';
-export { default as ctaConfiguration } from './ctaConfiguration';
 export { default as heroImage } from './heroImage';
 export { default as seoSettings } from './seoSettings';
 export { default as siteSettings } from './settings';
@@ -9,7 +8,6 @@ export { default as socilalNetworks } from './socialNetworks';
 export { default as siteHeader } from './header';
 export { default as callToAction } from './callToAction';
 export { default as siteFooter } from './siteFooter';
-export { default as imageType } from './imageType';
 export { default as internalLink } from './internalLink';
 export { default as contactInfo } from './contactInfo';
 export { default as contactPageSettings } from './contactPageSettings';

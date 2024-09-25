@@ -88,7 +88,6 @@ a {
   text-decoration: none;
 }
 
-
 /* bootstrap button style  */
 
 .btn {
@@ -472,4 +471,18 @@ reviews section style start
 
 .rate {
   color: var(--accent-color);
+}
+
+/*--------------------------------------------------------------
+Sanity studio custom styles
+--------------------------------------------------------------*/
+
+/* Hide the "Create" button in the header */
+div[data-ui="Navbar"] button[aria-label="Create new document"] {
+  display: none !important;
+}
+
+/* Hide the "All fields" button */
+button[data-ui="Tab"][data-testid="group-tab-all-fields"] {
+  display: none !important;
 }

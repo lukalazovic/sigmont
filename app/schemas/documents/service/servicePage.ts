@@ -1,24 +1,19 @@
-import { MdPages } from 'react-icons/md'
+import { MdConstruction } from 'react-icons/md'
 import * as blocks from '../../blocks/index';
 import { validateSeoInfo } from '@/app/shared/utils/validation';
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
     name: 'service',
-    title: 'Service Page',
+    title: ' ',
     type: 'document',
-    icon: MdPages,
+    icon: MdConstruction,
     groups: [
         { name: 'content', title: 'Content', default: true },
         { name: 'settings', title: 'Settings '},
         { name: 'seo', title: 'SEO'}
     ],
     fields: [
-        {
-            name: 'name',
-            title: 'Name',
-            type: 'string',
-            group: 'content',
-        },
         {
             name: 'heading',
             title: 'Heading',
@@ -61,5 +56,5 @@ export default {
             default: true,
             group: 'settings',
         }
-    ]
+    ],
 }

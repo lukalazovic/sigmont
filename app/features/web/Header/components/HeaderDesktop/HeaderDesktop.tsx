@@ -69,9 +69,9 @@ export const HeaderDesktop = ({
                     <li role='none' className={'menu-item'}>
                         <Link href={'/landing/about-us'} target={'_self'} aria-label={'O nama'} className='menu-link'>O nama</Link>
                     </li>
-                    <li role='none' className={'menu-item'}>
+                    {/* <li role='none' className={'menu-item'}>
                         <Link href={'/contact'} target={'_self'} aria-label={'Kontakt'} className='menu-link'>Kontakt</Link>
-                    </li>
+                    </li> */}
                 </ul>
             </div>
         </header>

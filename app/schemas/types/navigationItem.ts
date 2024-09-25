@@ -1,21 +1,22 @@
 import { MdAddBox, MdAddLink } from "react-icons/md";
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
     name: 'navigationItem',
     type: 'object',
-    title: 'Menu sub-categories',
+    title: 'Meni linkovi',
     icon: MdAddBox,
     fields:[
         {
             name: 'itemLink',
             type: 'internalLink',
-            title: 'Menu link',
-            description: 'Add information for menu link',
+            title: 'Link',
+            description: 'Dodajte informacije za link.',
         },
         {
             name: 'linkCollections',
-            title: 'Sub links',
-            description: 'List of links inside collection',
+            title: 'Podlinkovi',
+            description: 'Lista podlinkova unutar glavnog linka',
             type: 'array',
             of: [{ type: 'navigationItem' }],
         }
@@ -27,7 +28,7 @@ export default {
       },
       prepare({ title, name }) {
         return {
-          title: title || name || 'No Title',
+          title: title || name || 'Bez naslova',
           media: MdAddLink
         };
       }

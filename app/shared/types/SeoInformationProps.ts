@@ -1,5 +1,14 @@
-import { IMetaImageProps } from "./MetaImageProps";
-import { ISlugProps } from "./SlugProps";
+export interface IMetaImageProps {
+    _type: string;
+    asset: {
+        _ref: string;
+        _type: string;
+    };
+}
+export interface ISlugProps {
+    _type: string;
+    current: string;
+}
 
 export interface ISeoInformation {
     _type: string;

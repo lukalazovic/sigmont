@@ -1,26 +1,27 @@
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
     name: 'contactInfo',
-    title: 'Contact Information',
+    title: 'Kontakt Informacije',
     type: 'object',
-    description: 'Enter your contact information here, including office details such as the office name, address, phone numbers, and email address.',
+    description: 'Unesite kontakt informacije, uključujući podatke kao što su naziv kompanije, adresa, telefonski brojevi i email adresa.',
     fields: [
         {
             name: 'title',
-            title: 'Office Name',
+            title: 'Naziv kompanije',
             type: 'string',
-            description: 'Name or title of your office or location.',
+            description: 'Naziv Vaše kkompanije ili kancelarije.',
         },
         {
             name: 'address',
-            title: 'Address',
+            title: 'Adresa',
             type: 'string',
-            description: 'Physical street address of the office location.',
+            description: 'Fizička adresa kompanije.',
         },
         {
             name: 'phone',
-            title: 'Phones',
+            title: 'Telefoni',
             type: 'array',
-            description: 'Contact phone number(s) for the office.',
+            description: 'Kontakt telefonski broj(evi).',
             of: [
                 {
                     type: 'string'
@@ -31,7 +32,7 @@ export default {
             name: 'email',
             title: 'Email',
             type: 'email',
-            description: 'Primary email address for contacting the office.',
+            description: 'Primarna email adresa.',
         },
     ]
 }

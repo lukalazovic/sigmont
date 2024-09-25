@@ -1,22 +1,5 @@
 export const siteSettingsPageQuery = () => /* groq */ `
     *[_type == 'siteSettings'][0]{
-        contactPageSettings{
-            heading,
-            mainIntro,
-            heroImage {
-                title,
-                "imageSrc": image.asset->url,
-                "imageAlt": alt,
-                "ctaLabel": ctaConfiguration.ctaLabel,
-                "ctaLink": ctaConfiguration.ctaLinkUrl-> {
-                    "type": _type,
-                    "slug": seoInformation.slug.current
-                },
-                isFullHeight
-            },
-            contacts,
-            showSocialLinks,
-        },
         globalSettings{
             contactInfo,
             socialNetworks,
@@ -89,3 +72,22 @@ export const siteSettingsPageQuery = () => /* groq */ `
         }
     }
 `;
+
+
+// contactPageSettings{
+//     heading,
+//     mainIntro,
+//     heroImage {
+//         title,
+//         "imageSrc": image.asset->url,
+//         "imageAlt": alt,
+//         "ctaLabel": ctaConfiguration.ctaLabel,
+//         "ctaLink": ctaConfiguration.ctaLinkUrl-> {
+//             "type": _type,
+//             "slug": seoInformation.slug.current
+//         },
+//         isFullHeight
+//     },
+//     contacts,
+//     showSocialLinks,
+// },

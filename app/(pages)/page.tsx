@@ -8,8 +8,8 @@ export default function Home() {
                     <li><a href="/studio" target="_blank">Studio</a></li>
                     <li><a href="/landing/34">Landing page 34</a></li>
                     <li><a href="/contact">Contact page</a></li>
-                    <li><a href="/services/limarski-radovi">Limarski radovi</a></li>
-                    <li><a href="/services/49">Service page 49</a></li>
+                    <li><a href="/service/limarski-radovi">Limarski radovi</a></li>
+                    <li><a href="/service/49">Service page 49</a></li>
                 </ul>
             </div>
         </main>

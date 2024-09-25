@@ -1,15 +1,16 @@
 import { MdInfo } from 'react-icons/md';
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
     name: 'seoInformation',
-    title: 'SEO Information',
+    title: 'SEO Informacije',
     type: 'object',
     icon: MdInfo,
     fields: [
         {
             name: 'title',
-            title: 'Page Title',
-            description: 'SEO-optimized page title.',
+            title: 'Naslov stranice',
+            description: 'SEO optimizovani naslov stranice.',
             type: 'string',
         },
         {
@@ -19,24 +20,37 @@ export default {
             options: {
                 source: 'seoInformation.title',
                 maxLength: 200,
-                slugify: (input: string) => input
-                    .toLowerCase()
-                    .replace(/\s+/g, '-')
-                    .slice(0, 200),
+                slugify: (input: string) =>
+                    input
+                        .toLowerCase()
+                        .replace(/[čćšđž]/g, (match) => {
+                            switch (match) {
+                                case 'č': return 'c';
+                                case 'ć': return 'c';
+                                case 'š': return 's';
+                                case 'đ': return 'd';
+                                case 'ž': return 'z';
+                                default: return match;
+                            }
+                        })
+                        .replace(/[^a-z0-9\s-]/g, '-') // Replace all other non-letter and non-digit characters with dashes
+                        .trim()
+                        .replace(/\s+/g, '-') // Replace spaces with dashes
+                        .slice(0, 200), // Ensure the length is within the maximum limit
                 isUnique: () => true,
             },
-            description: 'URL-friendly version of the page title for better SEO.',
+            description: 'URL verzija naslova stranice za bolju SEO optimizaciju.',
         },
         {
             name: 'metaDescription',
-            title: 'Meta Description',
-            description: 'Short description that appears in search engine results. Aim for 150-160 characters.',
+            title: 'Meta Opis',
+            description: 'Kratak opis koji se pojavljuje u rezultatima pretrage. Ciljajte na 150-160 karaktera.',
             type: 'text',
         },
         {
             name: 'metaImage',
-            title: 'Meta Image',
-            description: 'Image displayed in search engine results and social media shares.',
+            title: 'Meta Slika',
+            description: 'Slika koja se prikazuje u rezultatima pretrage i prilikom deljenja na društvenim mrežama.',
             type: 'image',
         }
     ],

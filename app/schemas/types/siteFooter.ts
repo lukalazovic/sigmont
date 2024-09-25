@@ -1,54 +1,54 @@
 export default {
     name: 'siteFooter',
-    title: 'Site Footer',
+    title: 'Footer',
     type: 'object',
     fieldsets: [
         {
             name: 'footerNavigation',
-            title: 'Footer Navigation',
+            title: 'Footer Navigacija',
             options: { collapsible: true, collapsed: true }
         }
     ],
     fields: [
         {
             name: 'showLogo',
-            title: 'Display Logo',
+            title: 'Prikaži logo',
             type: 'boolean',
-            description: 'Toggle to display the logo in the footer section below the heading.',
+            description: 'Uključite/Isključite prikaz logotipa u sekciji footer ispod naslova.',
             initialValue: true,
         },
         {
             name: 'showAddress',
-            title: 'Display Address',
+            title: 'Prikaži adresu',
             type: 'boolean',
-            description: 'Toggle to display the main address in the footer.',
+            description: 'Uključite/Isključite prikaz glavne adresa u footer-u.',
             initialValue: false,
         },
         {
             name: 'desc',
-            title: 'Description',
+            title: 'Kratak opis',
             type: 'text',
-            description: 'A brief description about the business. This will be displayed in the footer to provide a quick overview to the visitors.',
+            description: 'Kratak opis o poslovanju. Ovo će biti prikazano u footer-u kao brzi pregled za posetioce.',
         },
         {
             name: 'showSocial',
-            title: 'Display Social Icons',
+            title: 'Prikaži ikone društvenih mreža',
             type: 'boolean',
-            description: 'Toggle to display social media icons below the description for easy access to your social profiles.',
+            description: 'Uključite/Isključite prikaz ikona društvenih mreža ispod opisa za lak pristup vašim profilima na društvenim mrežama.',
             initialValue: true,
         },
         {
             name: 'navHeading',
-            title: 'Navigation Heading',
+            title: 'Naslov navigacije',
             type: 'string',
-            description: 'Heading for the navigation links section in the footer.',
+            description: 'Naslov za sekciju sa navigacionim linkovima u footer-u.',
             fieldset: 'footerNavigation'
         },
         {
             name: 'mainNavigation',
-            title: 'Navigation Links',
+            title: 'Navigacioni linkovi',
             type: 'array',
-            description: 'Reference to a collection of quick navigation links to be displayed in the footer for easy access to important pages.',
+            description: 'Reference na kolekciju brzih navigacionih linkova koji će biti prikazani u footer-u za lak pristup važnim stranicama.',
             of: [{ type: 'internalLink'}],
             fieldset: 'footerNavigation'
         },
@@ -56,7 +56,7 @@ export default {
             name: 'subFooter',
             title: 'Sub-Footer',
             type: 'string',
-            description: 'Text for the sub-footer section at the bottom of the footer block, typically used for legal information or additional links.',
+            description: 'Tekst za sekciju sub-footer na dnu footer-a, obično se koristi za pravne informacije.',
         }
     ]
 };

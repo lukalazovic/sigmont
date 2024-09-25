@@ -1,18 +1,19 @@
 import { MdAddLink } from "react-icons/md";
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
     name: 'internalLink',
-    title: 'Internal Link',
+    title: 'Interni link',
     type: 'object',
     fields: [
         {
             name: 'reference',
-            title: 'Reference',
+            title: 'Referenca',
             type: 'reference',
-            description: 'Select the internal page to link to.',
+            description: 'Izaberite internu stranicu za povezivanje.',
             to: [
-                { type: 'landing', title: 'Landing Page' },
-                { type: 'service', title: 'Service Page' },
+                { type: 'landing', title: 'Obična stranica' },
+                { type: 'service', title: 'Stranica usluga' },
             ]
         }
     ],

@@ -1,31 +1,32 @@
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
     name: 'globalSettings',
-    title: 'Global Settings',
+    title: 'Glavna podešavanja',
     type: 'object',
-    description: 'Configure global settings for your application, including logos, contact information, and social networks.',
+    description: 'Konfigurišite glavna podešavanja za vašu aplikaciju, uključujući logotipe, kontakt informacije i društvene mreže.',
     fieldsets: [
         {
             name: 'logos',
-            title: 'Logos Settings',
+            title: 'Podešavanja logotipa',
             options: { collapsible: true, collapsed: true }
         },
         {
             name: 'contactInformation',
-            title: 'Main Contact Information Settings',
+            title: 'Podešavanja glavnih kontakt informacija',
             options: { collapsible: true, collapsed: true }
         },
         {
             name: 'socialNetworks',
-            title: 'Social Networks Settings',
+            title: 'Podešavanja društvenih mreža',
             options: { collapsible: true, collapsed: true }
         }
     ],
     fields: [
         {
             name: 'logo',
-            title: 'Desktop Logo',
+            title: 'Desktop logotip',
             type: 'image',
-            description: 'Logo displayed throughout your application.',
+            description: 'Logotip prikazan u vašoj aplikaciji na desktop uređajima.',
             options: {
                 hotspot: true,
             },
@@ -33,27 +34,26 @@ export default {
         },
         {
             name: 'mobileLogo',
-            title: 'Mobile Logo',
+            title: 'Mobilni logotip',
             type: 'image',
-            description: 'Optional logo specifically for mobile view.',
+            description: 'Opcioni logotip specifičan za prikaz na mobilnim uređajima.',
             options: {
                 hotspot: true,
             },
-            // validation: Rule => Rule.optional(),
             fieldset: 'logos'
         },
         {
             name: 'contactInfo',
-            title: 'Main Contact Information',
+            title: 'Glavne kontakt informacije',
             type: 'contactInfo',
-            description: 'Primary contact information for your main office or headquarters.',
+            description: 'Primarne kontakt informacije za vašu glavnu kancelariju ili sedište.',
             fieldset: 'contactInformation'
         },
         {
             name: 'socialNetworks',
-            title: 'Social Networks',
+            title: 'Društvene mreže',
             type: 'socialNetworks',
-            description: 'Links to your social media profiles.',
+            description: 'Linkovi ka vašim profilima na društvenim mrežama.',
             fieldset: 'socialNetworks'
         }
     ]
