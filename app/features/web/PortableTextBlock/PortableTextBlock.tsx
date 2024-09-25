@@ -107,12 +107,14 @@ const serializers = () => ({
 
             if (!node || !node.asset || !node.asset._ref) {
                 console.error('Invalid image block:', props);
+                // eslint-disable-next-line @next/next/no-img-element
                 return <img src="fallback-image-url.jpg" alt="Fallback Image" />;
             }
 
             const imageUrl = builder.image(node.asset).url();
 
             return (
+                // eslint-disable-next-line @next/next/no-img-element
                 <img
                     src={imageUrl}
                     className='img-fluid mb-3'

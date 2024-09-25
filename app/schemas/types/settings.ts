@@ -1,5 +1,6 @@
 import { MdSettings } from 'react-icons/md';
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
     name: 'siteSettings',
     title: 'Settings',

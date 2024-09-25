@@ -21,7 +21,6 @@ export function ContentAreaItemContainer({
     return (
         <ContentAreaItem
             blocks={blocks}
-            className={className}
             {...item}
         />
     );
