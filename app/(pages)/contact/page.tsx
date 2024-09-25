@@ -36,15 +36,15 @@
 
 
 import client from "@/app/client";
+import { notFound } from "next/navigation";
 import { contactPageQuery } from "@/app/groq";
 import { ContentAreaContainer, HeroImage } from "@/app/features";
 
 export default async function Contact() {
-
     const query = contactPageQuery();
     const data = await client.fetch(query);
     
-    if (!data || data.length === 0) return null;
+    if (!data || Object.keys(data).length === 0) return notFound();
     
     const { content: items, heroImage } = data[0];
 

@@ -17,7 +17,7 @@ export const TextAndImage = ({
         <div className="container text-and-image-wrapper mb-5">
             <div className={rowClass}>
                 <div className="col-md-6">
-                    <div className="image-holder border">
+                    <div className="image-holder">
                         <Image
                             width={636}
                             height={477}

@@ -7,12 +7,12 @@ export const HeroImage = ({
     imageSrc,
     className,
     subHeading,
-    isFullHeight,
+    fullHeight,
 }: IHeroImageProps) => {
     const heroImageClassName = classNames(
         className,
         'hero-image',
-        {'hero-image-no-full-height': !isFullHeight}
+        {'hero-image-no-full-height': !fullHeight}
     );
 
     const desktopImageSrc = imageSrc ? urlFor(imageSrc, 1900, 500) : 'none';

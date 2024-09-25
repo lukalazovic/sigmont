@@ -22,5 +22,5 @@ export default {
             description: 'Ovde dodajte predefinsane blokove kako bi kreirali sadržaj za stranicu.',
         },
     ],
-    preview: {prepare() {return {title: 'Početna stranica'}}},
+    preview: {prepare() {return {title: 'Početna'}}},
 };

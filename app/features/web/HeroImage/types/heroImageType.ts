@@ -3,5 +3,5 @@ export interface IHeroImageProps {
     imageSrc: string;
     className?: string;
     subHeading?: string;
-    isFullHeight?: boolean;
+    fullHeight?: boolean;
 }
