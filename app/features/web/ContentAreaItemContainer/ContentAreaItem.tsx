@@ -9,13 +9,11 @@ export interface IBlockProps {
 export interface IContentAreaItemProps extends IContentAreaItem {
     blocks: { [key: string]: FC<IBlockProps> };
     blockStyles?: { readonly [key: string]: string };
-    className?: string;
 }
 
 export function ContentAreaItem({
-    blocks,
     item,
-    _type,
+    blocks,
 }: IContentAreaItemProps) {
     if (!item._type) {
         console.error(`Type is not passed to ContentAreaItem`);
@@ -31,11 +29,5 @@ export function ContentAreaItem({
         return null;
     }
 
-    return (
-        <div>
-            <Component
-                {...item}
-            />
-        </div>
-    );
+    return <Component {...item} />
 }

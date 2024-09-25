@@ -1,10 +1,8 @@
-export const textAndImageQuery = () => {
+export const textAndImageBlockQuery = () => {
     return /* groq */ `
-    textAndImage {
         text,
         title,
         imagePosition,
         "imageSrc": image.asset->url
-    }
     `;
 };

@@ -10,16 +10,17 @@ interface ILandingProps {
 export default async function Landing({ params }: ILandingProps) {
     const { slug } = params;
 
-    const data = await client.fetch(landingPageQuery(slug));
+    const query = landingPageQuery(slug);
+    const data = await client.fetch(query);
 
-    const { blocks, heroImage } = data;
+    const { content: items, heroImage } = data;
 
     if (!data) return null;
 
     return (
         <main>
             <HeroImage {...heroImage} />
-            <ContentAreaContainer items={blocks} />
+            <ContentAreaContainer items={items} />
         </main>
     )
 }

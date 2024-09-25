@@ -4,16 +4,13 @@ import { IRenderContentAreaItemProps } from '../ContentAreaItemContainer/Content
 import { IContentAreaItem } from './ContentAreaContainer';
 
 export interface IContentAreaProps {
-    className?: string;
     contentAreaItems: IContentAreaItem[];
     renderContentAreaItem: (key: string, props: IRenderContentAreaItemProps) => ReactNode;
-    as?: keyof JSX.IntrinsicElements;
 }
 
 export function ContentArea({
-    renderContentAreaItem,
     contentAreaItems,
-    as: Tag = 'div',
+    renderContentAreaItem,
 }: IContentAreaProps) {
 
     if (!contentAreaItems?.length) {
@@ -21,12 +18,12 @@ export function ContentArea({
     }
 
             return (
-                <Tag>
+                <>
                     {contentAreaItems.map((v, i) =>
                         renderContentAreaItem(`content-area-item--${i}`, {
                             item: v,
                         })
                     )}
-                </Tag>
+                </>
             );
 }

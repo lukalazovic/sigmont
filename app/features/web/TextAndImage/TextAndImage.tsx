@@ -7,12 +7,9 @@ import client from '@/app/client';
 export const TextAndImage = ({
     text,
     title,
-    image,
+    imageSrc,
     imagePosition = 'left'
 }: ITextAndImageProps) => {
-    const builder = imageUrlBuilder(client);
-    const imageSrc = builder.image(image).url();
-
     const rowClass = classNames('row d-flex align-items-center', {
         'flex-row-reverse': imagePosition === 'right'
     });
