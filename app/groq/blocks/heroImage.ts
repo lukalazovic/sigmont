@@ -3,6 +3,7 @@ export const heroImageQuery = () => {
     heroImage {
         heading,
         subHeading,
+        fullheight,
         "imageSrc": image.asset->url
     }
     `;

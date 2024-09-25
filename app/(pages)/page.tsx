@@ -1,17 +1,20 @@
-export default function Home() {
+import client from "@/app/client";
+import { homePageQuery } from "@/app/groq";
+import { ContentAreaContainer, HeroImage } from "@/app/features";
+
+export default async function Home() {
+
+    const query = homePageQuery();
+    const data = await client.fetch(query);
+    
+    if (!data || data.length === 0) return null;
+    
+    const { content: items, heroImage } = data[0];
+
     return (
-        <main className="flex min-h-screen flex-col items-center justify-between p-24">
-            <div className="container mt-5">
-                <h1>Homepage</h1>
-                <h2 className="mt-5">List of Links</h2>
-                <ul>
-                    <li><a href="/studio" target="_blank">Studio</a></li>
-                    <li><a href="/landing/34">Landing page 34</a></li>
-                    <li><a href="/contact">Contact page</a></li>
-                    <li><a href="/service/limarski-radovi">Limarski radovi</a></li>
-                    <li><a href="/service/49">Service page 49</a></li>
-                </ul>
-            </div>
+        <main>
+            <HeroImage {...heroImage} />
+            <ContentAreaContainer items={items} />
         </main>
-    );
+    )
 }
