@@ -21,7 +21,7 @@ export default {
             title: 'Glavni Meni',
             type: 'array',
             of: [{ type: 'navigationItem'}],
-            description: 'Definišite meni prikazanog na vrhu sajta. Ovi linkovi će se nalaziti u sredini glavnog menija'
+            description: 'Definišite meni prikazanog na vrhu sajta. Ovi linkovi će se nalaziti u sredini glavnog menija.'
         },
         {
             name: 'showPhone',

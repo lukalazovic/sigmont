@@ -119,7 +119,7 @@ export default defineConfig({
                             .icon(MdNewspaper)
                             .child(
                                 S.documentTypeList("landing").title(
-                                    "Landing Page"
+                                    "Obična stranica"
                                 )
                             ),
                     ]),
