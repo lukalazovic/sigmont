@@ -1,4 +1,5 @@
 export * from './blocks/heroImage';
+export * from './blocks/galleryBlock';
 export * from './blocks/accordionBlock';
 export * from './blocks/textAndImageBlock';
 export * from './blocks/block-content-query';

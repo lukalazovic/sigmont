@@ -1,10 +1,12 @@
 @import './features/web/Header/Header.css';
 @import './features/web/Footer/Footer.css';
 @import './features/web/Address/Address.css';
+@import './features/web/Gallery/Gallery.css';
 @import './features/web/HeroImage/HeroImage.css';
 @import './features/web/TextAndImage/TextAndImage.css';
 @import './features/web/SocialNetworks/SocialNetworks.css';
-@import './features/web/AccordionBlock//AccordionBlock.css';
+@import './features/web/AccordionBlock/AccordionBlock.css';
+@import './features/web/BeforeAndAfter/BeforeAndAfter.css';
 
 *,
 *::before,
@@ -445,11 +447,13 @@ button.filter-button.gallery-btn {
 button.filter-button.gallery-btn.active {
   color: var(--bs-light);
   background: var(--accent-color);
+  border-color: var(--accent-color);
 }
 
 button.filter-button.gallery-btn:hover {
   color: var(--bs-light);
   background: var(--accent-color);
+  border-color: var(--accent-color);
 }
 
 
