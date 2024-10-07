@@ -5,8 +5,8 @@
 @import './features/web/HeroImage/HeroImage.css';
 @import './features/web/TextAndImage/TextAndImage.css';
 @import './features/web/SocialNetworks/SocialNetworks.css';
-@import './features/web/BeforeAndAfter/BeforeAndAfter.css';
 @import './features/web/AccordionBlock/AccordionBlock.css';
+@import './features/web/BeforeAndAfter/BeforeAndAfter.css';
 
 *,
 *::before,
