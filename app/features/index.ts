@@ -4,7 +4,7 @@ export * from './web/Gallery/Gallery';
 export * from './web/Address/Address';
 export * from './web/HeroImage/HeroImage';
 export * from './web/TextAndImage/TextAndImage';
-export * from './web/BeforeAndAfter/BeforeAndAfter';
+// export * from './web/BeforeAndAfter/BeforeAndAfter';
 export * from './web/AccordionBlock/AccordionBlock';
 export * from './web/SocialNetworks/SocialNetworks';
 export * from './web/PortableTextBlock/PortableTextBlock';
