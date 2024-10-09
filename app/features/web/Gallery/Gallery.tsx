@@ -6,46 +6,18 @@ import { IGalleryProps } from './types/galleryType';
 
 export const Gallery = ({ title, subTitle, items }: IGalleryProps) => {
     const [activeTab, setActiveTab] = useState<'image' | 'video'>('image');
-    const [activeTag, setActiveTag] = useState<string>('sve');
 
-    const hasImages = useMemo(() => items.some(item => item.mediaType === 'image' && (activeTag === 'sve' || item.category === activeTag)), [items, activeTag]);
-    const hasVideos = useMemo(() => items.some(item => item.mediaType === 'video' && (activeTag === 'sve' || item.category === activeTag)), [items, activeTag]);
-
-    const allTags = useMemo(() => {
-        const tags = items.reduce((acc, item) => {
-            if (item.mediaType === activeTab) {
-                acc.add(item.category);
-            }
-            return acc;
-        }, new Set<string>(['sve']));
-        return Array.from(tags);
-    }, [items, activeTab]);
+    const hasImages = useMemo(() => items.some(item => item.mediaType === 'image'), [items]);
+    const hasVideos = useMemo(() => items.some(item => item.mediaType === 'video'), [items]);
 
     const filteredMedia = useMemo(() => {
-        return items.filter(item => {
-            const isTypeMatch = item.mediaType === activeTab;
-            const isTagMatch = activeTag === 'sve' || item.category === activeTag;
-            return isTypeMatch && isTagMatch;
-        });
-    }, [items, activeTab, activeTag]);
+        return items.filter(item => item.mediaType === activeTab);
+    }, [items, activeTab]);
 
     return (
         <section className="container mb-5">
             {subTitle && <h6 className="text-center">{subTitle}</h6>}
             {title && <h2 className="text-center fw-bold display-5 mb-3">{title}</h2>}
-
-            <h6 className="text-center mb-1 category-title">Kategorije</h6>
-            <div className="tag-filters mb-3">
-                {allTags.map(tag => (
-                    <button
-                        key={tag}
-                        className={classNames('filter-button gallery-btn', { active: activeTag === tag })}
-                        onClick={() => setActiveTag(tag)}
-                    >
-                        {tag}
-                    </button>
-                ))}
-            </div>
 
             {hasImages || hasVideos ? (
                 <div className="gallery-tabs">
@@ -73,7 +45,6 @@ export const Gallery = ({ title, subTitle, items }: IGalleryProps) => {
                     <ResponsiveGallery
                         useLightBox={true}
                         media={filteredMedia
-                            .filter(item => item.mediaType === 'image' && item.image)
                             .map(item => ({
                                 src: item.image?.asset.url || '',
                                 alt: item.altText,
@@ -84,7 +55,6 @@ export const Gallery = ({ title, subTitle, items }: IGalleryProps) => {
                 {activeTab === 'video' && hasVideos && (
                     <div className="video-gallery">
                         {filteredMedia
-                            .filter(item => item.mediaType === 'video' && item.videoFile)
                             .map((item, index) => (
                                 <div key={index} className="video-item mb-3">
                                     <video controls width="100%">

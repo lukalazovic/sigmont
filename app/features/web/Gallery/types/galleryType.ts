@@ -4,7 +4,6 @@ export interface IGalleryProps {
     items: {
         _key: string;
         altText: string;
-        category: string;
         mediaType: 'image' | 'video';
         image?: {
             asset: {

@@ -4,7 +4,6 @@ export const galleryBlockQuery = () => {
         subTitle,
         items[] {
             altText,
-            category,
             mediaType,
             image {
                 asset->{

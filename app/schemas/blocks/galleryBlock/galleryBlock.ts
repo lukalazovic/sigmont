@@ -58,20 +58,6 @@ export default {
               description: 'Unesite alternativni tekst za sliku.',
               hidden: ({ parent }) => parent?.mediaType !== 'image',
             },
-            {
-              name: 'category',
-              type: 'string',
-              title: 'Kategorija',
-              description: 'Odaberite kategoriju kojoj stavka pripada.',
-              options: {
-                list: [
-                  { title: 'Kategorija 1', value: 'category1' },
-                  { title: 'Kategorija 2', value: 'category2' },
-                  { title: 'Kategorija 3', value: 'category3' },
-                ],
-              },
-              validation: (Rule) => Rule.required().error('Morate odabrati kategoriju.'),
-            },
           ],
           preview: {
             select: {
