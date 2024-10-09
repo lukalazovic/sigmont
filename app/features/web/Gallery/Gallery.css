@@ -57,14 +57,12 @@
     }
 
     .video-item {
-        height: auto;
         width: calc(50% - 4px);
     }
 }
 
 @media (max-width: 420px) {
     .video-item {
-        height: auto;
         width: 100%;
     }
 }
