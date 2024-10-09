@@ -30,12 +30,31 @@
 
 .video-item {
     height: 250px;
+    position: relative;
     margin-bottom: 8px;
     width: calc(20% - 4px);
 
     video {
         height: 100%;
     }
+}
+
+.video-item .placeholder {
+    width: 100%;
+    height: 100%;
+    background: #000;
+    color: #fff;
+    display: grid;
+    place-items: center;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+.video-item.video-playing .placeholder {
+    display: none;
 }
 
 @media (max-width: 1200px) {
@@ -83,3 +102,4 @@
 .gallery-content div {
     padding: 0;
 }
+
