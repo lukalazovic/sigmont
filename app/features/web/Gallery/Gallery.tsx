@@ -3,6 +3,7 @@ import { useState, useMemo } from 'react';
 import classNames from 'classnames';
 import ResponsiveGallery from 'react-responsive-gallery';
 import { IGalleryProps } from './types/galleryType';
+import placeholder from '../../../assets/img/test.png'
 
 export const Gallery = ({ title, subTitle, items }: IGalleryProps) => {
     const [activeTab, setActiveTab] = useState<'image' | 'video'>('image');
@@ -57,7 +58,7 @@ export const Gallery = ({ title, subTitle, items }: IGalleryProps) => {
                         {filteredMedia
                             .map((item, index) => (
                                 <div key={index} className="video-item mb-3">
-                                    <video controls width="100%">
+                                    <video controls width="100%" poster={placeholder.src}>
                                         <source src={item.videoFile?.asset.url} type="video/mp4" />
                                         Your browser does not support the video tag.
                                     </video>
